@@ -8,7 +8,7 @@ for (t in tags) {
 let url = `https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/measurements` +
     `?date_from=${inputs.date_from}T00%3A00%3A00%2B00%3A00` +
     `&date_to=${inputs.date_to}T23%3A00%3A00%2B00%3A00` +
-    `&limit=720` +
+    `&limit=10720` +
     `&page=1` +
     `&offset=0` +
     `&sort=asc` +
@@ -20,6 +20,8 @@ let url = `https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/measurement
     `&order_by=datetime`;
 
 function plot(labels, data) {
+
+    
 
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
@@ -43,6 +45,7 @@ function plot(labels, data) {
         }
     });
 
+    
 }
 
 
@@ -56,6 +59,7 @@ async function openAQ(url) {
             pm25.push(a.value)
         }
 
+        
         plot(labels, pm25)
 
     }
@@ -67,7 +71,10 @@ async function openAQ(url) {
 
 
 let array, labels = [], pm25 = []
-openAQ(url)
+
+const button = document.getElementById("button")
+button.addEventListener("click", e => openAQ(url))
+// openAQ(url)
 
 
 // url without text interpolation
