@@ -11,12 +11,12 @@ let url = `https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/measurement
     `&limit=720` +
     `&page=1` +
     `&offset=0` +
-    `&sort=desc` +
+    `&sort=asc` +
     `&parameter=${inputs.parameter}` +
     `&radius=1000` +
     `&country_id=CO` +
     `&city=${inputs.city}&` +
-    `location=${inputs.location}` +
+    `location=${inputs.location.replace(" ", "%20")}` +
     `&order_by=datetime`;
 
 function plot(labels, data) {
