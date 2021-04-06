@@ -3,7 +3,9 @@
 // --------------------------------------------
 
 function clearData() {
-    if (labels.length !== 0) {
+
+    // if (labels.length !== 0) {
+    if (document.getElementById('myChart')) {
         labels = []
         pm25 = []
         document.body.removeChild(canvas)
