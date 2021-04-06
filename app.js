@@ -1,27 +1,7 @@
-let tags = [`date_from`, `date_to`, `parameter`, `city`, `location`]
-let inputs = {}
-
-for (t in tags) {
-    inputs[tags[t]] = document.getElementById(tags[t]).value
-}
-
-let url = `https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/measurements` +
-    `?date_from=${inputs.date_from}T00%3A00%3A00%2B00%3A00` +
-    `&date_to=${inputs.date_to}T23%3A00%3A00%2B00%3A00` +
-    `&limit=10720` +
-    `&page=1` +
-    `&offset=0` +
-    `&sort=asc` +
-    `&parameter=${inputs.parameter}` +
-    `&radius=1000` +
-    `&country_id=CO` +
-    `&city=${inputs.city}&` +
-    `location=${inputs.location.replace(" ", "%20")}` +
-    `&order_by=datetime`;
 
 function plot(labels, data) {
 
-    
+
 
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
@@ -45,12 +25,34 @@ function plot(labels, data) {
         }
     });
 
-    
+
 }
 
 
-async function openAQ(url) {
+async function openAQ() {
     try {
+
+        let tags = [`date_from`, `date_to`, `parameter`, `city`, `location`]
+        let inputs = {}
+
+        for (t in tags) {
+            inputs[tags[t]] = document.getElementById(tags[t]).value
+        }
+
+        let url = `https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/measurements` +
+            `?date_from=${inputs.date_from}T00%3A00%3A00%2B00%3A00` +
+            `&date_to=${inputs.date_to}T23%3A00%3A00%2B00%3A00` +
+            `&limit=10720` +
+            `&page=1` +
+            `&offset=0` +
+            `&sort=asc` +
+            `&parameter=${inputs.parameter}` +
+            `&radius=1000` +
+            `&country_id=CO` +
+            `&city=${inputs.city}&` +
+            `location=${inputs.location.replace(" ", "%20")}` +
+            `&order_by=datetime`;
+
         const response = await fetch(url, { method: 'GET' })
         const data = await response.json();
         array = data.results
@@ -59,7 +61,7 @@ async function openAQ(url) {
             pm25.push(a.value)
         }
 
-        
+
         plot(labels, pm25)
 
     }
@@ -73,7 +75,7 @@ async function openAQ(url) {
 let array, labels = [], pm25 = []
 
 const button = document.getElementById("button")
-button.addEventListener("click", e => openAQ(url))
+button.addEventListener("click", e => openAQ())
 // openAQ(url)
 
 
