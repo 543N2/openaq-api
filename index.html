@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open AQ - API</title>
+  </head>
+  <body>
+    <h1>Open AQ</h1>
+    <h2>Data visualizer</h2>
+    <form action="">
+      <label for="date_from">Date from:</label>
+      <input id="date_from" type="date" />
+      <br />
+      <label for="date_to">Date to:</label>
+      <input id="date_to" type="date" />
+      <br />
+      <label for="parameter">Parameter:</label>
+      <input id="parameter" type="text" value="pm25" />
+      <br />
+      <label for="city">City:</label>
+      <input id="city" type="text" value="Bogota" />
+      <br />
+      <label for="location">Location;</label>
+      <input id="location" type="text" value="Puente%20Aranda" />
+    </form>
+
+    <canvas id="myChart" width="400" height="100"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
