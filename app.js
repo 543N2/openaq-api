@@ -60,6 +60,7 @@ async function getData() {
             labels.push(a.date.local.substring(0, 10))
             pm25.push(a.value)
         }
+        console.log
     }
     catch (err) {
         console.log("Failed retrieving information", err);
@@ -97,7 +98,10 @@ function getParameters() {
 }
 
 
-// Main program flow
+
+
+
+// Main program
 // status: OK
 // --------------------------------------------
 let parameters = {}
@@ -132,3 +136,36 @@ button_plot.addEventListener("click", e => {
 //     `location=Puente%20Aranda` +
 //     `&order_by=datetime`;
 
+
+
+// Not included yet:
+// -----------------------------------------------------
+
+
+
+// Calculates the Simple Moving Average of a set of datapoints
+// status: OK
+// -----------------------------------------------------
+function movingAverage(data, period) {
+    let result = []
+    for (let d = 0; d < data.length; d++) {
+        if (d < period - 1) {
+            result.push(data[d])
+        }
+        else {
+            let average = 0
+            for (let m = 0; m < period; m++) {
+                average += dataDay[d - m] / period
+            }
+            result.push(average)
+        }
+    }
+    return result
+}
+// // Data for testing movingAverage function
+// let dataDay = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+// let labelsDay = ['.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.',]
+// let newData = movingAverage(dataDay, 2)
+// plot(labelsDay, dataDay)
+// console.log(dataDay)
+// console.log(newData)
