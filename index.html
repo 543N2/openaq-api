@@ -4,30 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Open AQ - API</title>
   </head>
   <body>
-    <h1>Open AQ</h1>
-    <h2>Data visualizer</h2>
-    <form action="">
-      <label for="date_from">Date from:</label>
-      <input id="date_from" type="date" />
-      <br />
-      <label for="date_to">Date to:</label>
-      <input id="date_to" type="date" />
-      <br />
-      <label for="parameter">Parameter:</label>
-      <input id="parameter" type="text" value="pm25" />
-      <br />
-      <label for="city">City:</label>
-      <input id="city" type="text" value="Bogota" />
-      <br />
-      <label for="location">Location;</label>
-      <input id="location" type="text" value="Puente Aranda" />
-
-      <button id="button_plot" type="button">Plot</button>
-
-    </form>
+    <header class="header">
+      <span class="title">Open AQ: Data visualizer</span>
+    </header>
+    <section class="inputs_bar">
+      <div class="input_item_container">
+        <input class="input_item" id="date_from" type="date" />
+        <label for="date_from">from</label>
+      </div>
+      <div class="input_item_container">
+        <input class="input_item" id="date_to" type="date" />
+        <label for="date_to">to</label>
+      </div>
+      <div class="input_item_container">
+        <input class="input_item" id="parameter" type="text" value="pm25" />
+        <label for="parameter">parameter</label>
+      </div>
+      <div class="input_item_container">
+        <input class="input_item" id="city" type="text" value="Bogota" />
+        <label for="city">city</label>
+      </div>
+      <div class="input_item_container">
+        <input
+          class="input_item"
+          id="location"
+          type="text"
+          value="Puente Aranda"
+        />
+        <label for="location">location</label>
+      </div>
+        <button id="button_plot" class="input_button" type="button">
+          Plot
+        </button>
+      </div>
+    </section>
 
     <!-- <canvas id="myChart" width="400" height="100"></canvas> -->
 

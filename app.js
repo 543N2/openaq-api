@@ -21,7 +21,7 @@ function plot(labels, data) {
     // var ctx = document.getElementById('myChart').getContext('2d')
     canvas = document.createElement("CANVAS")
     var ctx = canvas.getContext('2d')
-    canvas.setAttribute('id', 'myChart')
+    canvas.setAttribute('id', 'myChart', 'class', 'canvas', 'style', 'margin:0;')
     document.body.appendChild(canvas)
 
     var myChart = new Chart(ctx, {
