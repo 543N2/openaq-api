@@ -180,7 +180,7 @@ function createRaw(start, end) {
                 rawData[d] = undefined
             }
         }
-        // // here format data into 2 arrays: labels and pm25, to plot.
+        rawLabels[d] = dateToUTC(rawLabels[d],'reverse')
     }
     console.log(`Executed createRaw()`)
     console.log('rawLabels')
@@ -201,10 +201,10 @@ function createRaw(start, end) {
 // Actions: NA
 // status: OK
 // -----------------------------------------------------
-function dateToUTC(date, fromOrTo) {
+function dateToUTC(date, startOrEnd) {
     let dateTQ = new Date(date)
     let hourFix
-    fromOrTo === 'from' ? hourFix = 5 : fromOrTo === 'to' ? hourFix = 5 + 23 : hourFix = 0
+    startOrEnd === 'from' ? hourFix = 5 : startOrEnd === 'to' ? hourFix = 5 + 23 : startOrEnd === 'reverse' ? hourFix = -5 : hourFix = 0
     dateTQ.setHours(dateTQ.getHours() + hourFix)
 
     console.log(`Executed dateToUTC()`)
@@ -314,7 +314,7 @@ button_plot.addEventListener("click", e => {
 
 
 
-
+// HEYY!! convert rawLabels to Local time!!!
 
 
 
