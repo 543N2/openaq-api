@@ -15,6 +15,8 @@ function clearData() {
         apiData = []
         rawLabels = []
         rawData = []
+        smoLabels = []
+        smoData = []
         document.body.removeChild(canvas)
     }
 
@@ -34,7 +36,7 @@ function clearData() {
 // Actions: canvas
 // status: OK
 // --------------------------------------------
-function plot(labels, data) {
+function plot(labels, dataRaw, dataSmooth) {
 
     // var ctx = document.getElementById('myChart').getContext('2d')
     canvas = document.createElement("CANVAS")
@@ -46,13 +48,22 @@ function plot(labels, data) {
         type: 'line',
         data: {
             labels: labels,
-            datasets: [{
-                label: 'PM 2.5',
-                data: data,
-                fill: false,
-                borderColor: 'rgba(0,0,0, 1)',
-                borderWidth: 1
-            }]
+            datasets: [
+                {
+                    label: 'PM 2.5 [µg/m³] (raw)',
+                    data: dataRaw,
+                    fill: false,
+                    borderColor: 'rgba(0,0,0, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'PM 2.5 [µg/m³] (smooth)',
+                    data: dataSmooth,
+                    fill: false,
+                    borderColor: 'rgba(255,0,0, 1)',
+                    borderWidth: 1
+                }
+            ]
         },
         options: {
             scales: {
@@ -68,6 +79,73 @@ function plot(labels, data) {
 }
 // --------------------------------------------
 
+
+
+// --------------------------------------------
+// MOVING AVERAGE
+// -------------------------------------------- 
+// Description: Calculates moving average given the period with acceptance of 75% of previous data.
+// Inputs: rawData
+// Outputs: avgData
+// Actions: smoData
+// status: OK, but needs to clean code.
+// --------------------------------------------
+// Dataset
+function movingAverage(data) {
+
+    let smoothData = []
+
+    // Moving average parameters
+    let pTot = 24
+    let pVal = Math.floor(0.75 * pTot)
+    console.log(`Total period: ${pTot}, Valid period: ${pVal}`)
+
+    // Validation criteria for data
+    const isValid = (d) => d > 0 && d !== null && d !== undefined && d !== "NA"
+
+    // First phase: 0 to pTot
+    for (let i = 0; i < pTot; i++) {
+        let validos = 0
+        let suma = 0
+        for (j = 0; j <= i; j++) {
+            if (isValid(data[j])) {
+                validos += 1
+                suma += data[j]
+            }
+        }
+        // console.log(validos)
+        if (validos >= pVal) {
+            smoothData[i] = suma / validos
+        }
+        else {
+            smoothData[i] = undefined
+        }
+    }
+
+    // Second phase: pTot to n
+    for (let i = pTot; i < data.length; i++) {
+        let validos = 0
+        let suma = 0
+        for (let j = i - pTot + 1; j <= i; j++) {
+            if (isValid(data[j])) {
+                validos += 1
+                suma += data[j]
+            }
+        }
+        // console.log(validos)
+        if (validos >= pVal) {
+            smoothData[i] = suma / validos
+        }
+        else {
+            smoothData[i] = undefined
+        }
+    }
+
+    //console.log(smoothData)
+    return smoothData
+}
+
+// --------------------------------------------
 
 
 // --------------------------------------------
@@ -109,6 +187,7 @@ async function getData() {
         const response = await fetch(parameters.url, { method: 'GET' })
         const data = await response.json();
         let array = data.results
+        console.log(array)
         for (a of array) {
             apiLabels.push(a.date.utc)
             apiData.push(a.value)
@@ -180,7 +259,7 @@ function createRaw(start, end) {
                 rawData[d] = undefined
             }
         }
-        rawLabels[d] = dateToUTC(rawLabels[d],'reverse')
+        smoLabels[d] = dateToUTC(rawLabels[d], 'reverse')
     }
     console.log(`Executed createRaw()`)
     console.log('rawLabels')
@@ -297,6 +376,9 @@ let apiData = []
 let rawLabels = []
 let rawData = []
 
+let smoLabels = []
+let smoData = []
+
 var canvas
 
 button_plot = document.getElementById(`button_plot`)
@@ -307,15 +389,34 @@ button_plot.addEventListener("click", e => {
     getURL()
     getData()
         .then(res => createRaw(parameters.date_from_utc, parameters.date_to_utc))
-        .then(res => plot(rawLabels, rawData))
+        .then(res => smoData = movingAverage(rawData))
+        .then(res => plot(smoLabels, rawData, smoData))
 
 })
 // --------------------------------------------
 
 
 
-// HEYY!! convert rawLabels to Local time!!!
 
+// SOFTWARE TEST:
+// --------------------------------------------
+
+// 1. MOCHUELO DATA
+function mochueloTest() {
+
+    var mochueloLabels = ['2021-03-19-01', '2021-03-19-02', '2021-03-19-03', '2021-03-19-04', '2021-03-19-05', '2021-03-19-06', '2021-03-19-07', '2021-03-19-08', '2021-03-19-09', '2021-03-19-10', '2021-03-19-11', '2021-03-19-12', '2021-03-19-13', '2021-03-19-14', '2021-03-19-15', '2021-03-19-16', '2021-03-19-17', '2021-03-19-18', '2021-03-19-19', '2021-03-19-20', '2021-03-19-21', '2021-03-19-22', '2021-03-19-23', '2021-03-20-00', '2021-03-20-01', '2021-03-20-02', '2021-03-20-03', '2021-03-20-04', '2021-03-20-05', '2021-03-20-06', '2021-03-20-07', '2021-03-20-08', '2021-03-20-09', '2021-03-20-10', '2021-03-20-11', '2021-03-20-12', '2021-03-20-13', '2021-03-20-14', '2021-03-20-15', '2021-03-20-16', '2021-03-20-17', '2021-03-20-18', '2021-03-20-19', '2021-03-20-20', '2021-03-20-21', '2021-03-20-22', '2021-03-20-23']
+    var mochueloRawData = [44, 29, 39, 13, 33, 51, 51, 81, 84, 47, 50, 38, 66, 59, 28, 26, 76, 98, 27, 23, 20, 58, 38, 46, 49, 56, 44, 70, 78, 87, 91, 81, 86, 54, 47, 29, 43, 17, 56, , 58, 87, 102, 16, 8, 24, 54, 57, 65, 26, 59, 80, 54, 47, 53, 36, 33, 33, 32, 31, 19, 27, 27, 42, 50, 34, 39, 41, 40, 57, 55, 33, 30, 48, 39, 61, 36, 36, 56, 31, 45, 35, 41, 40, 30, 47, 27, 28, 38, 36, 26, 27, 37, 43, 59, 62, 61, 63, 54, 59, 65, 59, 75, 63, 43, 59, 93, 60, 35, 20, 41, 44, 47, 43, 40, 48, 37, 43, 50, 55, 36, 43, 35, 43, 54, 37, 56, 37, 58, 48, 51, 48, 28, 46, 35, 25]
+    var mochueloSmoothData = movingAverage(mochueloRawData)
+    
+    console.log("Mochuelo labels: " + mochueloLabels)
+    console.log("Mochuelo Raw Data: " + mochueloRawData)
+    console.log("Mochuelo Smooth Data: " + mochueloSmoothData)
+
+    plot(mochueloLabels, mochueloRawData,mochueloSmoothData)
+}
+
+
+// --------------------------------------------
 
 
 
