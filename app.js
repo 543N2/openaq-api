@@ -1,4 +1,57 @@
 // --------------------------------------------
+// AIR QUALITY INDEX INFORMATION
+// -------------------------------------------- 
+// Description: Zones of alarm for PM 2.5 air quality index.
+// Inputs: NA
+// Outputs: NA
+// Actions: NA
+// status: OK
+// --------------------------------------------
+const AQI = {
+    'pm25': [
+        {
+            category: 'Good',
+            color: 'rgba(0,230,64,0.7)',
+            min: 0,
+            max: 12
+        },
+        {
+            category: 'Acceptable',
+            color: 'rgba(255,255,0,0.7)',
+            min: 13,
+            max: 37
+        },
+        {
+            category: 'Harmful to sentitive groups',
+            color: 'rgba(250,190,88,0.7)',
+            min: 38,
+            max: 55
+        },
+        {
+            category: 'Harmful',
+            color: 'rgba(255,0,0,0.7)',
+            min: 56,
+            max: 150
+        },
+        {
+            category: 'Very harmful',
+            color: 'rgba(121,7,242,0.7)',
+            min: 151,
+            max: 250
+        },
+        {
+            category: 'Dangerous',
+            color: 'rgba(165,42,42,0.7)',
+            min: 251,
+            max: 500
+        }
+    ]
+}
+// --------------------------------------------
+
+
+
+// --------------------------------------------
 // CLEAR DATA
 // -------------------------------------------- 
 // Description: Clears the fetched API data and deletes canvas.
@@ -26,7 +79,6 @@ function clearData() {
 // --------------------------------------------
 
 
-
 // --------------------------------------------
 // PLOT
 // -------------------------------------------- 
@@ -44,7 +96,7 @@ function plot(labels, dataRaw, dataSmooth) {
     canvas.setAttribute('id', 'myChart', 'class', 'canvas', 'style', 'margin:0;')
     document.body.appendChild(canvas)
 
-    var myChart = new Chart(ctx, {
+    let config = {
         type: 'line',
         data: {
             labels: labels,
@@ -62,7 +114,49 @@ function plot(labels, dataRaw, dataSmooth) {
                     fill: false,
                     borderColor: 'rgba(255,0,0, 1)',
                     borderWidth: 1
-                }
+                },
+                // {
+                //     label: AQI.pm25[0].category,
+                //     data: Array(labels.length).fill(AQI.pm25[0].max),
+                //     fill: true,
+                //     backgroundColor: AQI.pm25[0].color,
+                //     pointRadius: 0
+                // },
+                // {
+                //     label: AQI.pm25[1].category,
+                //     data: Array(labels.length).fill(AQI.pm25[1].max),
+                //     fill: true,
+                //     backgroundColor: AQI.pm25[1].color,
+                //     pointRadius: 0
+                // },
+                // {
+                //     label: AQI.pm25[2].category,
+                //     data: Array(labels.length).fill(AQI.pm25[2].max),
+                //     fill: true,
+                //     backgroundColor: AQI.pm25[2].color,
+                //     pointRadius: 0
+                // },
+                // {
+                //     label: AQI.pm25[3].category,
+                //     data: Array(labels.length).fill(AQI.pm25[3].max),
+                //     fill: true,
+                //     backgroundColor: AQI.pm25[3].color,
+                //     pointRadius: 0
+                // },{
+                //     label: AQI.pm25[4].category,
+                //     data: Array(labels.length).fill(AQI.pm25[4].max),
+                //     fill: true,
+                //     backgroundColor: AQI.pm25[4].color,
+                //     pointRadius: 0
+                // },
+                // {
+                //     label: AQI.pm25[5].category,
+                //     data: Array(labels.length).fill(AQI.pm25[5].max),
+                //     fill: true,
+                //     backgroundColor: AQI.pm25[5].color,
+                //     pointRadius: 0
+                // },
+
             ]
         },
         options: {
@@ -72,7 +166,9 @@ function plot(labels, dataRaw, dataSmooth) {
                 }
             }
         }
-    });
+    }
+
+    var myChart = new Chart(ctx, config);
 
     console.log(`Executed plot()`)
 
@@ -225,6 +321,24 @@ function numberOfHours(startDate, endDate) {
     return hours
 }
 // --------------------------------------------
+
+
+
+// --------------------------------------------
+// CREATE BACKGROUND
+// -------------------------------------------- 
+// Description: Creates config file to plot background
+// Inputs: start, end
+// Outputs: NA
+// Actions: rawLabels
+// Status: OK
+// -----------------------------------------------------
+function createBackground (start, end) {
+
+
+}
+
+
 
 
 
@@ -403,19 +517,17 @@ button_plot.addEventListener("click", e => {
 
 // 1. MOCHUELO DATA
 function mochueloTest() {
-    
+
     var mochueloLabels = ['2021-03-19-01', '2021-03-19-02', '2021-03-19-03', '2021-03-19-04', '2021-03-19-05', '2021-03-19-06', '2021-03-19-07', '2021-03-19-08', '2021-03-19-09', '2021-03-19-10', '2021-03-19-11', '2021-03-19-12', '2021-03-19-13', '2021-03-19-14', '2021-03-19-15', '2021-03-19-16', '2021-03-19-17', '2021-03-19-18', '2021-03-19-19', '2021-03-19-20', '2021-03-19-21', '2021-03-19-22', '2021-03-19-23', '2021-03-20-00', '2021-03-20-01', '2021-03-20-02', '2021-03-20-03', '2021-03-20-04', '2021-03-20-05', '2021-03-20-06', '2021-03-20-07', '2021-03-20-08', '2021-03-20-09', '2021-03-20-10', '2021-03-20-11', '2021-03-20-12', '2021-03-20-13', '2021-03-20-14', '2021-03-20-15', '2021-03-20-16', '2021-03-20-17', '2021-03-20-18', '2021-03-20-19', '2021-03-20-20', '2021-03-20-21', '2021-03-20-22', '2021-03-20-23', '2021-03-21-00', '2021-03-21-01', '2021-03-21-02', '2021-03-21-03', '2021-03-21-04', '2021-03-21-05', '2021-03-21-06', '2021-03-21-07', '2021-03-21-08', '2021-03-21-09', '2021-03-21-10', '2021-03-21-11', '2021-03-21-12', '2021-03-21-13', '2021-03-21-14', '2021-03-21-15', '2021-03-21-16', '2021-03-21-17', '2021-03-21-18', '2021-03-21-19', '2021-03-21-20', '2021-03-21-21', '2021-03-21-22', '2021-03-21-23', '2021-03-22-00', '2021-03-22-01', '2021-03-22-02', '2021-03-22-03', '2021-03-22-04', '2021-03-22-05', '2021-03-22-06', '2021-03-22-07', '2021-03-22-08', '2021-03-22-09', '2021-03-22-10', '2021-03-22-11', '2021-03-22-12', '2021-03-22-13', '2021-03-22-14', '2021-03-22-15', '2021-03-22-16', '2021-03-22-17', '2021-03-22-18', '2021-03-22-19', '2021-03-22-20', '2021-03-22-21', '2021-03-22-22', '2021-03-22-23', '2021-03-23-00', '2021-03-23-01', '2021-03-23-02', '2021-03-23-03', '2021-03-23-04', '2021-03-23-05', '2021-03-23-06', '2021-03-23-07', '2021-03-23-08', '2021-03-23-09', '2021-03-23-10', '2021-03-23-11', '2021-03-23-12', '2021-03-23-13', '2021-03-23-14', '2021-03-23-15', '2021-03-23-16', '2021-03-23-17', '2021-03-23-18', '2021-03-23-19', '2021-03-23-20', '2021-03-23-21', '2021-03-23-22', '2021-03-23-23', '2021-03-24-00', '2021-03-24-01', '2021-03-24-02', '2021-03-24-03', '2021-03-24-04', '2021-03-24-05', '2021-03-24-06', '2021-03-24-07', '2021-03-24-08', '2021-03-24-09', '2021-03-24-10', '2021-03-24-11', '2021-03-24-12', '2021-03-24-13', '2021-03-24-14', '2021-03-24-15', '2021-03-24-16']
     var mochueloRawData = [44, 29, 39, 13, 33, 51, 51, 81, 84, 47, 50, 38, 66, 59, 28, 26, 76, 98, 27, 23, 20, 58, 38, 46, 49, 56, 44, 70, 78, 87, 91, 81, 86, 54, 47, 29, 43, 17, 56, , 58, 87, 102, 16, 8, 24, 54, 57, 65, 26, 59, 80, 54, 47, 53, 36, 33, 33, 32, 31, 19, 27, 27, 42, 50, 34, 39, 41, 40, 57, 55, 33, 30, 48, 39, 61, 36, 36, 56, 31, 45, 35, 41, 40, 30, 47, 27, 28, 38, 36, 26, 27, 37, 43, 59, 62, 61, 63, 54, 59, 65, 59, 75, 63, 43, 59, 93, 60, 35, 20, 41, 44, 47, 43, 40, 48, 37, 43, 50, 55, 36, 43, 35, 43, 54, 37, 56, 37, 58, 48, 51, 48, 28, 46, 35, 25]
     var mochueloSmoothData = movingAverage(mochueloRawData)
-    
+
     console.log("Mochuelo labels: " + mochueloLabels)
     console.log("Mochuelo Raw Data: " + mochueloRawData)
     console.log("Mochuelo Smooth Data: " + mochueloSmoothData)
 
-    plot(mochueloLabels, mochueloRawData,mochueloSmoothData)
+    plot(mochueloLabels, mochueloRawData, mochueloSmoothData)
 }
-
-
 // --------------------------------------------
 
 
