@@ -75,11 +75,13 @@ function clearData() {
         rawData = []
         smoLabels = []
         smoData = []
-        document.body.removeChild(canvas)
+        configRaw = {}
+        configSmooth = {}
+        while (document.body.childNodes[document.body.childNodes.length - 1].tagName === "CANVAS") {
+            document.body.removeChild(document.body.childNodes[document.body.childNodes.length - 1])
+        }
     }
-
     console.log(`Executed clearData()`)
-
 }
 // --------------------------------------------
 
@@ -93,43 +95,67 @@ function clearData() {
 // Actions: rawLabels
 // Status: OK
 // -----------------------------------------------------
-function createConfig(labels, rawData, smoothData) {
+// function createConfig(labels, rawData, smoothData) {
+function createConfig(labels, data, type) {
 
-    // let maxValue = Math.max.apply(null, smoothData)
-    var maxValue = 0
-    for (let i = 0; i< rawData.length; i++) {
-        if (rawData[i] !== undefined) {
-            if (rawData[i] > maxValue) {
-                maxValue = rawData[i]
+    if (type === 'raw') {
+
+        configRaw.type = 'line'
+        configRaw.options = {}
+        configRaw.options.scales = {}
+        configRaw.options.scales.y = {}
+        configRaw.options.scales.y.beginAtZero = true
+        configRaw.data = {}
+        configRaw.data.labels = labels
+        configRaw.data.datasets = []
+        configRaw.data.datasets.unshift(
+            {
+                label: 'PM 2.5 [µg/m³] (raw)',
+                data: data,
+                fill: false,
+                borderColor: 'rgba(0,0,0, 1)',
+                borderWidth: 1
+            },
+        )
+
+    }
+    else if (type === 'smooth') {
+
+        // let maxValue = Math.max.apply(null, smoothData)
+        var maxValue = 0
+        for (let i = 0; i < data.length; i++) {
+            if (data[i] !== undefined) {
+                if (data[i] > maxValue) {
+                    maxValue = data[i]
+                }
             }
         }
-    }
 
-    config.type = 'line'
+        configSmooth.type = 'line'
+        configSmooth.options = {}
+        configSmooth.options.scales = {}
+        configSmooth.options.scales.y = {}
+        configSmooth.options.scales.y.beginAtZero = true
+        configSmooth.options.scales.y.max = maxValue * 1.25
+        configSmooth.data = {}
+        configSmooth.data.labels = labels
+        configSmooth.data.datasets = []
 
-    config.options = {}
-    config.options.scales = {}
-    config.options.scales.y = {}
-    config.options.scales.y.beginAtZero = true
-
-    config.data = {}
-    config.data.labels = labels
-    config.data.datasets = []
-    
-    for (a in AQI.pm25) {
-        if (maxValue <= AQI.pm25[a].max) {
-            config.data.datasets.push(
-                {
-                    label: AQI.pm25[a].category,
-                    data: Array(labels.length).fill(maxValue),
-                    fill: true,
-                    backgroundColor: AQI.pm25[a].color,
-                    pointRadius: 0
-                }
-            )
-        }
-        else {
-            config.data.datasets.push(
+        for (a in AQI.pm25) {
+            // if (maxValue <= AQI.pm25[a].max) {
+            // configSmooth.data.datasets.push(
+            //     {
+            //         label: AQI.pm25[a].category,
+            //         data: Array(labels.length).fill(maxValue),
+            //         fill: true,
+            //         backgroundColor: AQI.pm25[a].color,
+            //         pointRadius: 0
+            //     }
+            // )
+            // }
+            // else 
+            // if (maxValue >= AQI.pm25[a].max) {
+            configSmooth.data.datasets.push(
                 {
                     label: AQI.pm25[a].category,
                     data: Array(labels.length).fill(AQI.pm25[a].max),
@@ -138,24 +164,21 @@ function createConfig(labels, rawData, smoothData) {
                     pointRadius: 0
                 }
             )
+            // }
         }
+        configSmooth.data.datasets.unshift(
+            {
+                label: 'PM 2.5 [µg/m³] (smooth)',
+                data: data,
+                fill: false,
+                borderColor: 'rgba(0,0,0, 1)',
+                borderWidth: 3
+            })
+
     }
 
-    config.data.datasets.unshift(
-        {
-            label: 'PM 2.5 [µg/m³] (raw)',
-            data: rawData,
-            fill: false,
-            borderColor: 'rgba(0,0,0, 1)',
-            borderWidth: 1
-        },
-        {
-            label: 'PM 2.5 [µg/m³] (smooth)',
-            data: smoothData,
-            fill: false,
-            borderColor: 'rgba(0,0,0, 1)',
-            borderWidth: 4
-        })
+
+
 
 }
 
@@ -484,7 +507,8 @@ let smoLabels = []
 let smoData = []
 
 var canvas
-var config = {}
+var configRaw = {}
+var configSmooth = {}
 
 button_plot = document.getElementById(`button_plot`)
 button_plot.addEventListener("click", e => {
@@ -495,8 +519,11 @@ button_plot.addEventListener("click", e => {
     getData()
         .then(res => createRaw(parameters.date_from_utc, parameters.date_to_utc))
         .then(res => smoData = movingAverage(rawData))
-        .then(res => createConfig(smoLabels, rawData, smoData))
-        .then(res => plot(config))
+        .then(res => createConfig(smoLabels, rawData, 'raw'))
+        .then(res => createConfig(smoLabels, smoData, 'smooth'))
+        .then(res => plot(configRaw))
+        .then(res => plot(configSmooth))
+        .catch(e => alert("There is not enough valid data available for the specified parameters."))
 
 })
 // --------------------------------------------
@@ -518,8 +545,10 @@ function mochueloTest() {
     console.log("Mochuelo Raw Data: " + mochueloRawData)
     console.log("Mochuelo Smooth Data: " + mochueloSmoothData)
 
-    createConfig(mochueloLabels, mochueloRawData, mochueloSmoothData)
-    plot(config)
+    createConfig(mochueloLabels, mochueloRawData, 'raw')
+    createConfig(mochueloLabels, mochueloSmoothData, 'smooth')
+    plot(configRaw)
+    plot(configSmooth)
 }
 // --------------------------------------------
 
