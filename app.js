@@ -11,37 +11,43 @@ const AQI = {
     'pm25': [
         {
             category: 'Good',
-            color: 'rgba(0,230,64,1)',
+            // color: 'rgba(0,230,64,1)',
+            color: '#7def7d',
             min: 0,
             max: 12
         },
         {
             category: 'Acceptable',
-            color: 'rgba(255,255,0,1)',
+            // color: 'rgba(255,255,0,1)',
+            color: '#f4f474',
             min: 13,
             max: 37
         },
         {
             category: 'Harmful to sentitive groups',
-            color: 'rgba(250,190,88,1)',
+            // color: 'rgba(250,190,88,1)',
+            color: '#fab97a',
             min: 38,
             max: 55
         },
         {
             category: 'Harmful',
-            color: 'rgba(255,0,0,1)',
+            // color: 'rgba(255,0,0,1)',
+            color: '#f97979',
             min: 56,
             max: 150
         },
         {
             category: 'Very harmful',
-            color: 'rgba(121,7,242,1)',
+            // color: 'rgba(121,7,242,1)',
+            color: '#c79fcb',
             min: 151,
             max: 250
         },
         {
             category: 'Dangerous',
-            color: 'rgba(165,42,42,1)',
+            // color: 'rgba(165,42,42,1)',
+            color: '#b87e00',
             min: 251,
             max: 500
         }
