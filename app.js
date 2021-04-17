@@ -11,44 +11,43 @@ const AQI = {
     'pm25': [
         {
             category: 'Good',
-            color: 'rgba(0,230,64,0.7)',
+            color: 'rgba(0,230,64,1)',
             min: 0,
             max: 12
         },
         {
             category: 'Acceptable',
-            color: 'rgba(255,255,0,0.7)',
+            color: 'rgba(255,255,0,1)',
             min: 13,
             max: 37
         },
         {
             category: 'Harmful to sentitive groups',
-            color: 'rgba(250,190,88,0.7)',
+            color: 'rgba(250,190,88,1)',
             min: 38,
             max: 55
         },
         {
             category: 'Harmful',
-            color: 'rgba(255,0,0,0.7)',
+            color: 'rgba(255,0,0,1)',
             min: 56,
             max: 150
         },
         {
             category: 'Very harmful',
-            color: 'rgba(121,7,242,0.7)',
+            color: 'rgba(121,7,242,1)',
             min: 151,
             max: 250
         },
         {
             category: 'Dangerous',
-            color: 'rgba(165,42,42,0.7)',
+            color: 'rgba(165,42,42,1)',
             min: 251,
             max: 500
         }
     ]
 }
 // --------------------------------------------
-
 
 
 // --------------------------------------------
@@ -80,6 +79,82 @@ function clearData() {
 
 
 // --------------------------------------------
+// CREATE PLOT CONFIGURATION OBJECT
+// -------------------------------------------- 
+// Description: Creates config file to plot background
+// Inputs: start, end
+// Outputs: NA
+// Actions: rawLabels
+// Status: OK
+// -----------------------------------------------------
+function createConfig(labels, rawData, smoothData) {
+
+    // let maxValue = Math.max.apply(null, smoothData)
+    var maxValue = 0
+    for (let i = 0; i< rawData.length; i++) {
+        if (rawData[i] !== undefined) {
+            if (rawData[i] > maxValue) {
+                maxValue = rawData[i]
+            }
+        }
+    }
+
+    config.type = 'line'
+
+    config.options = {}
+    config.options.scales = {}
+    config.options.scales.y = {}
+    config.options.scales.y.beginAtZero = true
+
+    config.data = {}
+    config.data.labels = labels
+    config.data.datasets = []
+    
+    for (a in AQI.pm25) {
+        if (maxValue <= AQI.pm25[a].max) {
+            config.data.datasets.push(
+                {
+                    label: AQI.pm25[a].category,
+                    data: Array(labels.length).fill(maxValue),
+                    fill: true,
+                    backgroundColor: AQI.pm25[a].color,
+                    pointRadius: 0
+                }
+            )
+        }
+        else {
+            config.data.datasets.push(
+                {
+                    label: AQI.pm25[a].category,
+                    data: Array(labels.length).fill(AQI.pm25[a].max),
+                    fill: true,
+                    backgroundColor: AQI.pm25[a].color,
+                    pointRadius: 0
+                }
+            )
+        }
+    }
+
+    config.data.datasets.unshift(
+        {
+            label: 'PM 2.5 [µg/m³] (raw)',
+            data: rawData,
+            fill: false,
+            borderColor: 'rgba(0,0,0, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'PM 2.5 [µg/m³] (smooth)',
+            data: smoothData,
+            fill: false,
+            borderColor: 'rgba(0,0,0, 1)',
+            borderWidth: 4
+        })
+
+}
+
+
+// --------------------------------------------
 // PLOT
 // -------------------------------------------- 
 // Description: Creates canvas, context and plots the dataset.
@@ -88,85 +163,13 @@ function clearData() {
 // Actions: canvas
 // status: OK
 // --------------------------------------------
-function plot(labels, dataRaw, dataSmooth) {
+function plot(config) {
 
     // var ctx = document.getElementById('myChart').getContext('2d')
     canvas = document.createElement("CANVAS")
     var ctx = canvas.getContext('2d')
     canvas.setAttribute('id', 'myChart', 'class', 'canvas', 'style', 'margin:0;')
     document.body.appendChild(canvas)
-
-    let config = {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'PM 2.5 [µg/m³] (raw)',
-                    data: dataRaw,
-                    fill: false,
-                    borderColor: 'rgba(0,0,0, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'PM 2.5 [µg/m³] (smooth)',
-                    data: dataSmooth,
-                    fill: false,
-                    borderColor: 'rgba(255,0,0, 1)',
-                    borderWidth: 1
-                },
-                // {
-                //     label: AQI.pm25[0].category,
-                //     data: Array(labels.length).fill(AQI.pm25[0].max),
-                //     fill: true,
-                //     backgroundColor: AQI.pm25[0].color,
-                //     pointRadius: 0
-                // },
-                // {
-                //     label: AQI.pm25[1].category,
-                //     data: Array(labels.length).fill(AQI.pm25[1].max),
-                //     fill: true,
-                //     backgroundColor: AQI.pm25[1].color,
-                //     pointRadius: 0
-                // },
-                // {
-                //     label: AQI.pm25[2].category,
-                //     data: Array(labels.length).fill(AQI.pm25[2].max),
-                //     fill: true,
-                //     backgroundColor: AQI.pm25[2].color,
-                //     pointRadius: 0
-                // },
-                // {
-                //     label: AQI.pm25[3].category,
-                //     data: Array(labels.length).fill(AQI.pm25[3].max),
-                //     fill: true,
-                //     backgroundColor: AQI.pm25[3].color,
-                //     pointRadius: 0
-                // },{
-                //     label: AQI.pm25[4].category,
-                //     data: Array(labels.length).fill(AQI.pm25[4].max),
-                //     fill: true,
-                //     backgroundColor: AQI.pm25[4].color,
-                //     pointRadius: 0
-                // },
-                // {
-                //     label: AQI.pm25[5].category,
-                //     data: Array(labels.length).fill(AQI.pm25[5].max),
-                //     fill: true,
-                //     backgroundColor: AQI.pm25[5].color,
-                //     pointRadius: 0
-                // },
-
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    }
 
     var myChart = new Chart(ctx, config);
 
@@ -323,25 +326,6 @@ function numberOfHours(startDate, endDate) {
 // --------------------------------------------
 
 
-
-// --------------------------------------------
-// CREATE BACKGROUND
-// -------------------------------------------- 
-// Description: Creates config file to plot background
-// Inputs: start, end
-// Outputs: NA
-// Actions: rawLabels
-// Status: OK
-// -----------------------------------------------------
-function createBackground (start, end) {
-
-
-}
-
-
-
-
-
 // --------------------------------------------
 // CREATE RAW
 // -------------------------------------------- 
@@ -494,6 +478,7 @@ let smoLabels = []
 let smoData = []
 
 var canvas
+var config = {}
 
 button_plot = document.getElementById(`button_plot`)
 button_plot.addEventListener("click", e => {
@@ -504,7 +489,8 @@ button_plot.addEventListener("click", e => {
     getData()
         .then(res => createRaw(parameters.date_from_utc, parameters.date_to_utc))
         .then(res => smoData = movingAverage(rawData))
-        .then(res => plot(smoLabels, rawData, smoData))
+        .then(res => createConfig(smoLabels, rawData, smoData))
+        .then(res => plot(config))
 
 })
 // --------------------------------------------
@@ -526,7 +512,8 @@ function mochueloTest() {
     console.log("Mochuelo Raw Data: " + mochueloRawData)
     console.log("Mochuelo Smooth Data: " + mochueloSmoothData)
 
-    plot(mochueloLabels, mochueloRawData, mochueloSmoothData)
+    createConfig(mochueloLabels, mochueloRawData, mochueloSmoothData)
+    plot(config)
 }
 // --------------------------------------------
 
