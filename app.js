@@ -7,140 +7,416 @@
 // Actions: NA
 // status: OK
 // --------------------------------------------
+
 const AQI = {
-    'pm25': [
-        {
-            category: 'Good',
-            color: 'rgba(0,228,0,1)',
-            min: 0,
-            max: 12,
-            horas: 24
-        },
-        {
-            category: 'Acceptable',
-            color: 'rgba(255,255,0,1)',
-            min: 13,
-            max: 37,
-            horas: 24
-        },
-        {
-            category: 'Harmful to sentitive groups',
-            color: 'rgba(255,126,0,1)',
-            min: 38,
-            max: 55,
-            horas: 24
-        },
-        {
-            category: 'Harmful',
-            color: 'rgba(255,0,0,1)',
-            min: 56,
-            max: 150,
-            horas: 24
-        },
-        {
-            category: 'Very harmful',
-            color: 'rgba(143,63,151,1)',
-            min: 151,
-            max: 250,
-            horas: 24
-        },
-        {
-            category: 'Dangerous',
-            color: 'rgba(126,0,35,1)',
-            min: 251,
-            max: 500,
-            horas: 24
-        }
-    ],
-    'pm10': [
-        {
-            category: 'Good',
-            color: 'rgba(0,228,0,1)',
-            min: 0,
-            max: 54,
-            horas: 24
-        },
-        {
-            category: 'Acceptable',
-            color: 'rgba(255,255,0,1)',
-            min: 55,
-            max: 154,
-            horas: 24
-        },
-        {
-            category: 'Harmful to sentitive groups',
-            color: 'rgba(255,126,0,1)',
-            min: 155,
-            max: 254,
-            horas: 24
-        },
-        {
-            category: 'Harmful',
-            color: 'rgba(255,0,0,1)',
-            min: 255,
-            max: 354,
-            horas: 24
-        },
-        {
-            category: 'Very harmful',
-            color: 'rgba(143,63,151,1)',
-            min: 355,
-            max: 424,
-            horas: 24
-        },
-        {
-            category: 'Dangerous',
-            color: 'rgba(126,0,35,1)',
-            min: 425,
-            max: 604,
-            horas: 24
-        }
-    ],
-    'co': [
-        {
-            category: 'Good',
-            color: 'rgba(0,228,0,1)',
-            min: 0,
-            max: 5094,
-            horas: 8
-        },
-        {
-            category: 'Acceptable',
-            color: 'rgba(255,255,0,1)',
-            min: 5095,
-            max: 10819,
-            horas: 8
-        },
-        {
-            category: 'Harmful to sentitive groups',
-            color: 'rgba(255,126,0,1)',
-            min: 10820,
-            max: 14254,
-            horas: 8
-        },
-        {
-            category: 'Harmful',
-            color: 'rgba(255,0,0,1)',
-            min: 14255,
-            max: 17688,
-            horas: 8
-        },
-        {
-            category: 'Very harmful',
-            color: 'rgba(143,63,151,1)',
-            min: 17689,
-            max: 34862,
-            horas: 8
-        },
-        {
-            category: 'Dangerous',
-            color: 'rgba(126,0,35,1)',
-            min: 34863,
-            max: 57703,
-            horas: 8
-        }
-    ],
+    'pm25':
+    {
+        'name': 'PM 2.5',
+        'unit': 'µg/m³',
+        'hours': 24,
+        'category':
+            [
+                {
+                    criteria: 'Good',
+                    color: 'rgba(0,228,0,1)',
+                    min: 0,
+                    max: 12,
+                },
+                {
+                    criteria: 'Acceptable',
+                    color: 'rgba(255,255,0,1)',
+                    min: 13,
+                    max: 37,
+                },
+                {
+                    criteria: 'Harmful to sentitive groups',
+                    color: 'rgba(255,126,0,1)',
+                    min: 38,
+                    max: 55,
+                },
+                {
+                    criteria: 'Harmful',
+                    color: 'rgba(255,0,0,1)',
+                    min: 56,
+                    max: 150,
+                },
+                {
+                    criteria: 'Very harmful',
+                    color: 'rgba(143,63,151,1)',
+                    min: 151,
+                    max: 250,
+                },
+                {
+                    criteria: 'Dangerous',
+                    color: 'rgba(126,0,35,1)',
+                    min: 251,
+                    max: 500,
+                }
+            ]
+
+    },
+
+    'pm10':
+    {
+        'name': 'PM 10',
+        'unit': 'µg/m³',
+        'hours': 24,
+        'category':
+            [
+                {
+                    criteria: 'Good',
+                    color: 'rgba(0,228,0,1)',
+                    min: 0,
+                    max: 54,
+                },
+                {
+                    criteria: 'Acceptable',
+                    color: 'rgba(255,255,0,1)',
+                    min: 55,
+                    max: 154,
+                },
+                {
+                    criteria: 'Harmful to sentitive groups',
+                    color: 'rgba(255,126,0,1)',
+                    min: 155,
+                    max: 254,
+                },
+                {
+                    criteria: 'Harmful',
+                    color: 'rgba(255,0,0,1)',
+                    min: 255,
+                    max: 354,
+                },
+                {
+                    criteria: 'Very harmful',
+                    color: 'rgba(143,63,151,1)',
+                    min: 355,
+                    max: 424,
+                },
+                {
+                    criteria: 'Dangerous',
+                    color: 'rgba(126,0,35,1)',
+                    min: 425,
+                    max: 604,
+                }
+            ],
+    },
+    'co':
+    {
+        'name': 'CO',
+        'unit': 'µg/m³',
+        'hours': 8,
+        'category':
+            [
+                {
+                    criteria: 'Good',
+                    color: 'rgba(0,228,0,1)',
+                    min: 0,
+                    max: 5094,
+                },
+                {
+                    criteria: 'Acceptable',
+                    color: 'rgba(255,255,0,1)',
+                    min: 5095,
+                    max: 10819,
+                },
+                {
+                    criteria: 'Harmful to sentitive groups',
+                    color: 'rgba(255,126,0,1)',
+                    min: 10820,
+                    max: 14254,
+                },
+                {
+                    criteria: 'Harmful',
+                    color: 'rgba(255,0,0,1)',
+                    min: 14255,
+                    max: 17688,
+                },
+                {
+                    criteria: 'Very harmful',
+                    color: 'rgba(143,63,151,1)',
+                    min: 17689,
+                    max: 34862,
+                },
+                {
+                    criteria: 'Dangerous',
+                    color: 'rgba(126,0,35,1)',
+                    min: 34863,
+                    max: 57703,
+                }
+            ]
+    },
+    'so2':
+    {
+        'name': 'SO₂',
+        'unit': 'µg/m³',
+        'hours': 1,
+        'category':
+            [
+                {
+                    criteria: 'Good',
+                    color: 'rgba(0,228,0,1)',
+                    min: 0,
+                    max: 93,
+                },
+                {
+                    criteria: 'Acceptable',
+                    color: 'rgba(255,255,0,1)',
+                    min: 94,
+                    max: 197,
+                },
+                {
+                    criteria: 'Harmful to sentitive groups',
+                    color: 'rgba(255,126,0,1)',
+                    min: 198,
+                    max: 486,
+                },
+                {
+                    criteria: 'Harmful',
+                    color: 'rgba(255,0,0,1)',
+                    min: 487,
+                    max: 797,
+                },
+                {
+                    criteria: 'Very harmful',
+                    color: 'rgba(143,63,151,1)',
+                    min: 798,
+                    max: 1583,
+                },
+                {
+                    criteria: 'Dangerous',
+                    color: 'rgba(126,0,35,1)',
+                    min: 1584,
+                    max: 2629,
+                }
+            ]
+    },
+    'no2':
+    {
+        'name': 'NO₂',
+        'unit': 'µg/m³',
+        'hours': 1,
+        'category':
+            [
+                {
+                    criteria: 'Good',
+                    color: 'rgba(0,228,0,1)',
+                    min: 0,
+                    max: 100,
+                },
+                {
+                    criteria: 'Acceptable',
+                    color: 'rgba(255,255,0,1)',
+                    min: 101,
+                    max: 189,
+                },
+                {
+                    criteria: 'Harmful to sentitive groups',
+                    color: 'rgba(255,126,0,1)',
+                    min: 190,
+                    max: 677,
+                },
+                {
+                    criteria: 'Harmful',
+                    color: 'rgba(255,0,0,1)',
+                    min: 678,
+                    max: 1221,
+                },
+                {
+                    criteria: 'Very harmful',
+                    color: 'rgba(143,63,151,1)',
+                    min: 1222,
+                    max: 2349,
+                },
+                {
+                    criteria: 'Dangerous',
+                    color: 'rgba(126,0,35,1)',
+                    min: 2350,
+                    max: 3853,
+                }
+            ]
+    },
+    'o3':
+    {
+        'name': 'O₃',
+        'unit': 'µg/m³',
+        'hours': 8,
+        'category':
+            [
+                {
+                    criteria: 'Good',
+                    color: 'rgba(0,228,0,1)',
+                    min: 0,
+                    max: 106,
+                },
+                {
+                    criteria: 'Acceptable',
+                    color: 'rgba(255,255,0,1)',
+                    min: 107,
+                    max: 138,
+                },
+                {
+                    criteria: 'Harmful to sentitive groups',
+                    color: 'rgba(255,126,0,1)',
+                    min: 139,
+                    max: 167,
+                },
+                {
+                    criteria: 'Harmful',
+                    color: 'rgba(255,0,0,1)',
+                    min: 168,
+                    max: 207,
+                },
+                {
+                    criteria: 'Very harmful',
+                    color: 'rgba(143,63,151,1)',
+                    min: 208,
+                    max: 393,
+                },
+                {
+                    criteria: 'Dangerous',
+                    color: 'rgba(126,0,35,1)',
+                    min: 394,
+                    max: 394,
+                }
+            ]
+    },
 }
+
+// const AQI = {
+//     'pm25': [
+//         {
+//             category: 'Good',
+//             color: 'rgba(0,228,0,1)',
+//             min: 0,
+//             max: 12,
+//             hours: 24
+//         },
+//         {
+//             category: 'Acceptable',
+//             color: 'rgba(255,255,0,1)',
+//             min: 13,
+//             max: 37,
+//             hours: 24
+//         },
+//         {
+//             category: 'Harmful to sentitive groups',
+//             color: 'rgba(255,126,0,1)',
+//             min: 38,
+//             max: 55,
+//             hours: 24
+//         },
+//         {
+//             category: 'Harmful',
+//             color: 'rgba(255,0,0,1)',
+//             min: 56,
+//             max: 150,
+//             hours: 24
+//         },
+//         {
+//             category: 'Very harmful',
+//             color: 'rgba(143,63,151,1)',
+//             min: 151,
+//             max: 250,
+//             hours: 24
+//         },
+//         {
+//             category: 'Dangerous',
+//             color: 'rgba(126,0,35,1)',
+//             min: 251,
+//             max: 500,
+//             hours: 24
+//         }
+//     ],
+//     'pm10': [
+//         {
+//             category: 'Good',
+//             color: 'rgba(0,228,0,1)',
+//             min: 0,
+//             max: 54,
+//             hours: 24
+//         },
+//         {
+//             category: 'Acceptable',
+//             color: 'rgba(255,255,0,1)',
+//             min: 55,
+//             max: 154,
+//             hours: 24
+//         },
+//         {
+//             category: 'Harmful to sentitive groups',
+//             color: 'rgba(255,126,0,1)',
+//             min: 155,
+//             max: 254,
+//             hours: 24
+//         },
+//         {
+//             category: 'Harmful',
+//             color: 'rgba(255,0,0,1)',
+//             min: 255,
+//             max: 354,
+//             hours: 24
+//         },
+//         {
+//             category: 'Very harmful',
+//             color: 'rgba(143,63,151,1)',
+//             min: 355,
+//             max: 424,
+//             hours: 24
+//         },
+//         {
+//             category: 'Dangerous',
+//             color: 'rgba(126,0,35,1)',
+//             min: 425,
+//             max: 604,
+//             hours: 24
+//         }
+//     ],
+//     'co': [
+//         {
+//             category: 'Good',
+//             color: 'rgba(0,228,0,1)',
+//             min: 0,
+//             max: 5094,
+//             hours: 8
+//         },
+//         {
+//             category: 'Acceptable',
+//             color: 'rgba(255,255,0,1)',
+//             min: 5095,
+//             max: 10819,
+//             hours: 8
+//         },
+//         {
+//             category: 'Harmful to sentitive groups',
+//             color: 'rgba(255,126,0,1)',
+//             min: 10820,
+//             max: 14254,
+//             hours: 8
+//         },
+//         {
+//             category: 'Harmful',
+//             color: 'rgba(255,0,0,1)',
+//             min: 14255,
+//             max: 17688,
+//             hours: 8
+//         },
+//         {
+//             category: 'Very harmful',
+//             color: 'rgba(143,63,151,1)',
+//             min: 17689,
+//             max: 34862,
+//             hours: 8
+//         },
+//         {
+//             category: 'Dangerous',
+//             color: 'rgba(126,0,35,1)',
+//             min: 34863,
+//             max: 57703,
+//             hours: 8
+//         }
+//     ],
+// }
 // --------------------------------------------
 
 
@@ -198,7 +474,7 @@ function createConfig(labels, data, type, parameter) {
         configRaw.data.datasets = []
         configRaw.data.datasets.unshift(
             {
-                label: 'PM 2.5 [µg/m³] (raw)',
+                label: `${AQI[parameter].name} [${AQI[parameter].unit}] (raw)`,
                 data: data,
                 fill: false,
                 borderColor: 'rgba(0,0,0, 1)',
@@ -229,21 +505,55 @@ function createConfig(labels, data, type, parameter) {
         configSmooth.data.labels = labels
         configSmooth.data.datasets = []
 
-        for (a in AQI[parameter]) {
+
+        // loops to try
+
+        // GET CRITERIA LABELS
+        // for(let a in AQI[parameter]['category']){ 
+        //     console.log(AQI['co']['category'][a].criteria)
+        // }
+
+        // GET MAX VALUE OF AQI
+        // for(let a in AQI['co']['category']){ 
+        //     console.log(AQI['co']['category'][a].max)
+        // }
+
+        //GET COLORS OF AQI
+        // for(let a in AQI['co']['category']){ 
+        //     console.log(AQI['co']['category'][a].color)
+        // }
+
+        // GET PARAMETER LABEL (CO, PM 2.5, PM 10, etc)
+        // AQI[parameter].name
+
+        // GET PARAMETER HOURS PERIOD
+        // AQI['pm25'].hours
+
+        // GET PARAMETER UNIT
+        // AQI['pm25'].unit
+
+        // loops to try
+
+
+        for (a in AQI[parameter]['category']) {
+            console.log("esto esta saliendo")
+            console.log(AQI[parameter]['category'][a].criteria)
 
             configSmooth.data.datasets.push(
                 {
-                    label: AQI[parameter][a].category,
-                    data: Array(labels.length).fill(AQI[parameter][a].max),
+                    label: AQI[parameter]['category'][a].criteria,
+                    data: Array(labels.length).fill(AQI[parameter]['category'][a].max),
                     fill: true,
-                    backgroundColor: AQI[parameter][a].color,
+                    backgroundColor: AQI[parameter]['category'][a].color,
                     pointRadius: 0
                 }
             )
+            console.log(configSmooth.data.datasets)
         }
         configSmooth.data.datasets.unshift(
             {
-                label: 'PM 2.5 [µg/m³] (smooth)',
+                // label: 'PM 2.5 [µg/m³] (smooth)',
+                label: `${AQI[parameter].name} [${AQI[parameter].unit}] (smooth)`,
                 data: data,
                 fill: false,
                 borderColor: 'rgba(0,0,0, 1)',
@@ -295,7 +605,8 @@ function plot(config) {
 // --------------------------------------------
 // Dataset
 function movingAverage(data) {
-
+    console.log("la data es:")
+    console.log(data)
     let smoothData = []
 
     // Moving average parameters
@@ -454,9 +765,15 @@ function createRaw(start, end) {
         // compare rawLabels with apiLabels
         for (let a in apiLabels) {
             let exist = rawLabels[d] === apiLabels[a]
+            let validData = apiData[a] > 0 && apiData[a] !== "" && apiData[a] !== null && apiData[a] !== undefined
             if (exist) {
-                rawData[d] = apiData[a]
-                break
+                if (validData) {
+                    rawData[d] = apiData[a]
+                    break
+                }
+                else {
+                    rawData[d] = undefined
+                }
             } else {
                 rawData[d] = undefined
             }
@@ -539,8 +856,8 @@ function getDates() {
 
     if (dateFrom.value === "" || dateTo.value === "") {
         alert("Remember to choose the dates.")
-        dateFrom.setAttribute('style','background-color: #ffff00')
-        dateTo.setAttribute('style','background-color: #ffff00')
+        dateFrom.setAttribute('style', 'background-color: #ffff00')
+        dateTo.setAttribute('style', 'background-color: #ffff00')
     }
 
     parameters.date_from = dateFrom.value
@@ -718,7 +1035,10 @@ let parameters = {}
 cityQuery()
     .then(res => locationQuery())
     .then(res => parameterQuery())
-    .catch(err => alert("Error capturing inputs." + err))
+    .catch(err => {
+        alert("Error capturing inputs.")
+        console.log(err)
+    })
 
 let apiLabels = []
 let apiData = []
@@ -741,11 +1061,14 @@ button_plot.addEventListener("click", e => {
     getData()
         .then(res => createRaw(parameters.date_from_utc, parameters.date_to_utc))
         .then(res => smoData = movingAverage(rawData))
-        .then(res => createConfig(smoLabels, rawData, 'raw'))
+        .then(res => createConfig(smoLabels, rawData, 'raw', parameters.parameter))
         .then(res => createConfig(smoLabels, smoData, 'smooth', parameters.parameter))
         .then(res => plot(configRaw))
         .then(res => plot(configSmooth))
-        .catch(e => alert("There is not enough valid data available for the specified parameters."))
+        .catch(e => {
+            alert("There is not enough valid information to proceed. Please verify the dates.")
+            console.log(e)
+        })
 
 })
 // --------------------------------------------
