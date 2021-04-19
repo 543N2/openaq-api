@@ -11,47 +11,135 @@ const AQI = {
     'pm25': [
         {
             category: 'Good',
-            // color: 'rgba(0,230,64,1)',
-            color: '#7def7d',
+            color: 'rgba(0,228,0,1)',
             min: 0,
-            max: 12
+            max: 12,
+            horas: 24
         },
         {
             category: 'Acceptable',
-            // color: 'rgba(255,255,0,1)',
-            color: '#f4f474',
+            color: 'rgba(255,255,0,1)',
             min: 13,
-            max: 37
+            max: 37,
+            horas: 24
         },
         {
             category: 'Harmful to sentitive groups',
-            // color: 'rgba(250,190,88,1)',
-            color: '#fab97a',
+            color: 'rgba(255,126,0,1)',
             min: 38,
-            max: 55
+            max: 55,
+            horas: 24
         },
         {
             category: 'Harmful',
-            // color: 'rgba(255,0,0,1)',
-            color: '#f97979',
+            color: 'rgba(255,0,0,1)',
             min: 56,
-            max: 150
+            max: 150,
+            horas: 24
         },
         {
             category: 'Very harmful',
-            // color: 'rgba(121,7,242,1)',
-            color: '#c79fcb',
+            color: 'rgba(143,63,151,1)',
             min: 151,
-            max: 250
+            max: 250,
+            horas: 24
         },
         {
             category: 'Dangerous',
-            // color: 'rgba(165,42,42,1)',
-            color: '#b87e00',
+            color: 'rgba(126,0,35,1)',
             min: 251,
-            max: 500
+            max: 500,
+            horas: 24
         }
-    ]
+    ],
+    'pm10': [
+        {
+            category: 'Good',
+            color: 'rgba(0,228,0,1)',
+            min: 0,
+            max: 54,
+            horas: 24
+        },
+        {
+            category: 'Acceptable',
+            color: 'rgba(255,255,0,1)',
+            min: 55,
+            max: 154,
+            horas: 24
+        },
+        {
+            category: 'Harmful to sentitive groups',
+            color: 'rgba(255,126,0,1)',
+            min: 155,
+            max: 254,
+            horas: 24
+        },
+        {
+            category: 'Harmful',
+            color: 'rgba(255,0,0,1)',
+            min: 255,
+            max: 354,
+            horas: 24
+        },
+        {
+            category: 'Very harmful',
+            color: 'rgba(143,63,151,1)',
+            min: 355,
+            max: 424,
+            horas: 24
+        },
+        {
+            category: 'Dangerous',
+            color: 'rgba(126,0,35,1)',
+            min: 425,
+            max: 604,
+            horas: 24
+        }
+    ],
+    'co': [
+        {
+            category: 'Good',
+            color: 'rgba(0,228,0,1)',
+            min: 0,
+            max: 5094,
+            horas: 8
+        },
+        {
+            category: 'Acceptable',
+            color: 'rgba(255,255,0,1)',
+            min: 5095,
+            max: 10819,
+            horas: 8
+        },
+        {
+            category: 'Harmful to sentitive groups',
+            color: 'rgba(255,126,0,1)',
+            min: 10820,
+            max: 14254,
+            horas: 8
+        },
+        {
+            category: 'Harmful',
+            color: 'rgba(255,0,0,1)',
+            min: 14255,
+            max: 17688,
+            horas: 8
+        },
+        {
+            category: 'Very harmful',
+            color: 'rgba(143,63,151,1)',
+            min: 17689,
+            max: 34862,
+            horas: 8
+        },
+        {
+            category: 'Dangerous',
+            color: 'rgba(126,0,35,1)',
+            min: 34863,
+            max: 57703,
+            horas: 8
+        }
+    ],
 }
 // --------------------------------------------
 
@@ -96,7 +184,7 @@ function clearData() {
 // Status: OK
 // -----------------------------------------------------
 // function createConfig(labels, rawData, smoothData) {
-function createConfig(labels, data, type) {
+function createConfig(labels, data, type, parameter) {
 
     if (type === 'raw') {
 
@@ -141,30 +229,17 @@ function createConfig(labels, data, type) {
         configSmooth.data.labels = labels
         configSmooth.data.datasets = []
 
-        for (a in AQI.pm25) {
-            // if (maxValue <= AQI.pm25[a].max) {
-            // configSmooth.data.datasets.push(
-            //     {
-            //         label: AQI.pm25[a].category,
-            //         data: Array(labels.length).fill(maxValue),
-            //         fill: true,
-            //         backgroundColor: AQI.pm25[a].color,
-            //         pointRadius: 0
-            //     }
-            // )
-            // }
-            // else 
-            // if (maxValue >= AQI.pm25[a].max) {
+        for (a in AQI[parameter]) {
+
             configSmooth.data.datasets.push(
                 {
-                    label: AQI.pm25[a].category,
-                    data: Array(labels.length).fill(AQI.pm25[a].max),
+                    label: AQI[parameter][a].category,
+                    data: Array(labels.length).fill(AQI[parameter][a].max),
                     fill: true,
-                    backgroundColor: AQI.pm25[a].color,
+                    backgroundColor: AQI[parameter][a].color,
                     pointRadius: 0
                 }
             )
-            // }
         }
         configSmooth.data.datasets.unshift(
             {
@@ -412,9 +487,6 @@ function dateToUTC(date, startOrEnd) {
     let hourFix
     startOrEnd === 'from' ? hourFix = 5 : startOrEnd === 'to' ? hourFix = 5 + 23 : startOrEnd === 'reverse' ? hourFix = -5 : hourFix = 0
     dateTQ.setHours(dateTQ.getHours() + hourFix)
-
-    console.log(`Executed dateToUTC()`)
-
     return dateTQ.toISOString().substr(0, 19) + "+00:00"
 }
 // --------------------------------------------
@@ -442,7 +514,7 @@ function getURL() {
         `&radius=1000` +
         `&country_id=CO` +
         `&city=${parameters.city}&` +
-        `location=${parameters.location.replace(" ", "%20")}` +
+        `location=${parameters.location.replaceAll(" ", "%20")}` +
         `&order_by=datetime`;
 
     console.log(`Executed getURL()`)
@@ -452,38 +524,184 @@ function getURL() {
 
 
 // --------------------------------------------
-// GET PARAMETERS
+// GET DATES
 // -------------------------------------------- 
-// Description: Reads HTML elements into parameters object.
+// Description: Reads HTML dates and writes to parameters.
 // Inputs: NA
 // Outputs: NA
 // Actions: tags, parameters
 // status: OK
 // --------------------------------------------
-function getParameters() {
-    try {
-        let tags = [`date_from`, `date_to`, `parameter`, `city`, `location`]
-        for (t of tags) {
-            parameters[t] = document.getElementById(t).value
-            if (t.includes('date')) {
-                let fromOrTo
-                t.includes('from') ? fromOrTo = 'from' : t.includes('to') ? fromOrTo = 'to' : fromOrTo = null
-                parameters[`${t}_utc`] = dateToUTC(parameters[t], fromOrTo)
-            }
-        }
+function getDates() {
 
-        console.log(`Executed getParameters()`)
-        console.log(parameters)
+    let dateFrom = document.getElementById('date_from')
+    let dateTo = document.getElementById('date_to')
+
+    if (dateFrom.value === "" || dateTo.value === "") {
+        alert("Remember to choose the dates.")
+        dateFrom.setAttribute('style','background-color: #ffff00')
+        dateTo.setAttribute('style','background-color: #ffff00')
     }
-    catch (err) {
-        alert("Please verify you have entered a valid date")
 
-        console.log(`Error fetching data`)
-        console.log(err)
+    parameters.date_from = dateFrom.value
+    parameters.date_to = dateTo.value
+
+    parameters.date_from_utc = dateToUTC(parameters.date_from, 'from')
+    parameters.date_to_utc = dateToUTC(parameters.date_to, 'to')
+
+    console.log(`Executed getDates()`)
+    // console.log(parameters)
+
+}
+// --------------------------------------------
+
+
+// --------------------------------------------
+// DROP DOWN OPTIONS BUILDER
+// -------------------------------------------- 
+// Description: Adds the options array to the given selector.
+// Inputs: options
+// Outputs: NA
+// Actions: HTML tags
+// status: OK
+// --------------------------------------------
+function dropdownBuilder(values, displays, selectorStr) {
+
+    // let options = ['Op1', 'Op2', 'Op3', 'Op4']
+    let selector = document.getElementById(selectorStr)
+
+    while (selector.firstChild) {
+        selector.removeChild(selector.firstChild)
+    }
+
+    for (let i = 0; i < values.length; i++) {
+        let opt = document.createElement("OPTION")
+        opt.value = values[i]
+        opt.innerHTML = displays[i]
+        selector.appendChild(opt)
     }
 }
 // --------------------------------------------
 
+
+// --------------------------------------------
+// CITY DROP DOWN QUERIES
+// -------------------------------------------- 
+// Description: Query the API to obtain city names.
+// Inputs: options
+// Outputs: NA
+// Actions: NA
+// status: OK
+// --------------------------------------------
+async function cityQuery() {
+
+    let cityElements = document.getElementById("city")
+
+    let URL = 'https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/cities?limit=100&page=1&offset=0&sort=asc&country=CO&order_by=city'
+    let response = await fetch(URL, { method: 'GET' })
+    const data = await response.json();
+    let array = await data.results
+
+    for (let c of array) {
+        let option = document.createElement("OPTION")
+        option.innerHTML = c.city
+        option.value = c.city
+        cityElements.appendChild(option)
+    }
+
+    cityElements.addEventListener("change", () => {
+        parameters.city = cityElements.value
+    })
+
+    console.log("Run cityQuery()")
+}
+// --------------------------------------------
+
+
+// --------------------------------------------
+// LOCATION DROP DOWN QUERIES
+// -------------------------------------------- 
+// Description: Query the API to obtain location names..
+// Inputs: options
+// Outputs: NA
+// Actions: HTML tags
+// status: OK
+// --------------------------------------------
+async function locationQuery() {
+
+    let cityElements = document.getElementById("city")
+
+    cityElements.addEventListener('change', async (e) => {
+        let cityStr = parameters.city.replaceAll(" ", "%20")
+        let URL = `https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/locations?limit=100000&page=1&offset=0&sort=desc&radius=1000&country=CO&` +
+            `city=${cityStr}` +
+            `&order_by=location&dumpRaw=false`
+        let response = await fetch(URL, { method: 'GET' })
+        let dataObject = await response.json()
+        let data = []
+        for (loc of dataObject.results) {
+            data.push(loc.name)
+        }
+        let array = [... new Set(data)]
+        array.unshift("Set location")
+        dropdownBuilder(array, array, "location")
+        console.log("Run locationQuery()")
+    })
+
+    let locationElements = document.getElementById("location")
+
+    locationElements.addEventListener('change', async () => {
+        parameters.location = locationElements.value
+    })
+}
+// --------------------------------------------
+
+
+// --------------------------------------------
+// PARAMETER DROP DOWN QUERIES
+// -------------------------------------------- 
+// Description: Query the API to obtain parameter names..
+// Inputs: options
+// Outputs: NA
+// Actions: HTML tags
+// status: IN PROGRESS
+// --------------------------------------------
+async function parameterQuery() {
+
+    let locationElements = document.getElementById("location")
+    locationElements.addEventListener('change', async (e) => {
+        let cityStr = parameters.city.replaceAll(" ", "%20")
+        let locationStr = parameters.location.replaceAll(" ", "%20")
+        let URL = `https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/locations?limit=100000&page=1&offset=0&sort=desc&radius=1000&country=CO&` +
+            `city=${cityStr}` +
+            `&location=${locationStr}` +
+            `&order_by=location&dumpRaw=false`
+        let response = await fetch(URL, { method: 'GET' })
+        let dataObject = await response.json()
+
+        let values = []
+        let displays = []
+        for (param of dataObject.results[0].parameters) {
+            displays.push(`${param.displayName} [${param.unit}]`)
+            values.push(param.parameter)
+        }
+
+        values.unshift("")
+        displays.unshift("Select parameter")
+
+        // console.log(values)
+        // console.log(displays)
+        dropdownBuilder(values, displays, "parameter")
+
+        let parameterElements = document.getElementById("parameter")
+        parameterElements.addEventListener("change", () => {
+            parameters.parameter = document.getElementById("parameter").value
+
+            getDates()
+        })
+    })
+}
+// --------------------------------------------
 
 
 // --------------------------------------------
@@ -496,6 +714,11 @@ function getParameters() {
 // status: OK
 // --------------------------------------------
 let parameters = {}
+
+cityQuery()
+    .then(res => locationQuery())
+    .then(res => parameterQuery())
+    .catch(err => alert("Error capturing inputs." + err))
 
 let apiLabels = []
 let apiData = []
@@ -512,15 +735,14 @@ var configSmooth = {}
 
 button_plot = document.getElementById(`button_plot`)
 button_plot.addEventListener("click", e => {
-
     clearData()
-    getParameters()
+    getDates()
     getURL()
     getData()
         .then(res => createRaw(parameters.date_from_utc, parameters.date_to_utc))
         .then(res => smoData = movingAverage(rawData))
         .then(res => createConfig(smoLabels, rawData, 'raw'))
-        .then(res => createConfig(smoLabels, smoData, 'smooth'))
+        .then(res => createConfig(smoLabels, smoData, 'smooth', parameters.parameter))
         .then(res => plot(configRaw))
         .then(res => plot(configSmooth))
         .catch(e => alert("There is not enough valid data available for the specified parameters."))
