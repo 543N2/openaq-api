@@ -1,0 +1,1806 @@
+var a = {
+    "meta": {
+      "name": "openaq-api",
+      "license": "CC BY 4.0d",
+      "website": "https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/",
+      "page": 1,
+      "limit": 100000,
+      "found": 21
+    },
+    "results": [
+      {
+        "id": 8025,
+        "city": "Bogota",
+        "name": "Usme",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 36226,
+            "unit": "µg/m³",
+            "count": 7076,
+            "average": 36.6248531266252,
+            "lastValue": 17.82838,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184392,
+            "unit": "ppm",
+            "count": 3588,
+            "average": 0.0115783441120401,
+            "lastValue": 0.01440293,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 23266,
+            "unit": "µg/m³",
+            "count": 6993,
+            "average": 14.9358734051194,
+            "lastValue": 5.79258,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36225,
+            "unit": "ppm",
+            "count": 7298,
+            "average": 0.00376850186448342,
+            "lastValue": 0.003232742,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36224,
+            "unit": "ppm",
+            "count": 7316,
+            "average": 0.0170294430306178,
+            "lastValue": 0.005566442,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36223,
+            "unit": "ppm",
+            "count": 7243,
+            "average": 0.483408269087395,
+            "lastValue": 0.274495,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.53120556,
+          "longitude": -74.1117138888889
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 39514
+      },
+      {
+        "id": 9628,
+        "city": "Bogota",
+        "name": "US Diplomatic Post: Bogota",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "epa-airnow-dos",
+            "url": "http://airnow.gov/index.cfm?action=airnow.global_summary",
+            "name": "EPA AirNow DOS"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 29734,
+            "unit": "µg/m³",
+            "count": 79137,
+            "average": -164.804051202345,
+            "lastValue": -999,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2016-11-09T17:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.637735,
+          "longitude": -74.09486
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2016-11-09T17:00:00+00:00",
+        "measurements": 79137
+      },
+      {
+        "id": 10490,
+        "city": "Bogota",
+        "name": "Ciudad Bolivar",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 34806,
+            "unit": "ppm",
+            "count": 7196,
+            "average": 0.63134120553085,
+            "lastValue": 0.274058,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-30T13:00:00+00:00"
+          },
+          {
+            "id": 34796,
+            "unit": "ppm",
+            "count": 7171,
+            "average": 0.00319008989373867,
+            "lastValue": 0.001614586,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-30T13:00:00+00:00"
+          },
+          {
+            "id": 34797,
+            "unit": "ppm",
+            "count": 7193,
+            "average": 0.0193911460888364,
+            "lastValue": 0.003061059,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-30T13:00:00+00:00"
+          },
+          {
+            "id": 34795,
+            "unit": "µg/m³",
+            "count": 7097,
+            "average": 43.740464852332,
+            "lastValue": 13.47844,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-30T13:00:00+00:00"
+          },
+          {
+            "id": 34794,
+            "unit": "µg/m³",
+            "count": 7172,
+            "average": 21.6754977541829,
+            "lastValue": 16.21813,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-30T13:00:00+00:00"
+          },
+          {
+            "id": 1184634,
+            "unit": "ppm",
+            "count": 3717,
+            "average": 0.0090760724842615,
+            "lastValue": 0.01812822,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-04T15:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.5778056,
+          "longitude": -74.1662777777778
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-30T13:00:00+00:00",
+        "measurements": 39546
+      },
+      {
+        "id": 10499,
+        "city": "Bogota",
+        "name": "Fontibon",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 34833,
+            "unit": "ppm",
+            "count": 5962,
+            "average": 0.0128469593792352,
+            "lastValue": 0.003645224,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35359,
+            "unit": "µg/m³",
+            "count": 6560,
+            "average": 35.8075697123476,
+            "lastValue": 2.044692,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35443,
+            "unit": "ppm",
+            "count": 6579,
+            "average": 0.647051588235294,
+            "lastValue": 0.446565,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35439,
+            "unit": "ppm",
+            "count": 6574,
+            "average": 0.0015820649957408,
+            "lastValue": 0.001194318,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1284249,
+            "unit": "ppm",
+            "count": 2553,
+            "average": 0.0156230253090482,
+            "lastValue": 0.021178,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-09T18:00:00+00:00"
+          },
+          {
+            "id": 35346,
+            "unit": "µg/m³",
+            "count": 6387,
+            "average": 20.6003817136371,
+            "lastValue": 0,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.6782472,
+          "longitude": -74.1438166
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 34615
+      },
+      {
+        "id": 10501,
+        "city": "Bogota",
+        "name": "Guaymaral",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 34842,
+            "unit": "µg/m³",
+            "count": 7098,
+            "average": 28.9901380670611,
+            "lastValue": 16,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184405,
+            "unit": "ppm",
+            "count": 3801,
+            "average": 0.0119855087284925,
+            "lastValue": 0.01909069,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 34837,
+            "unit": "µg/m³",
+            "count": 7361,
+            "average": 15.3682923515827,
+            "lastValue": 2,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 34847,
+            "unit": "ppm",
+            "count": 6908,
+            "average": 0.0189889657104806,
+            "lastValue": 0.000224721,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.78374,
+          "longitude": -74.04417
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 25168
+      },
+      {
+        "id": 10535,
+        "city": "Bogota",
+        "name": "Centro de Alto Rendimiento",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 34946,
+            "unit": "µg/m³",
+            "count": 7121,
+            "average": 15.4898694003651,
+            "lastValue": 0,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 34948,
+            "unit": "ppm",
+            "count": 7321,
+            "average": 0.000941699573145745,
+            "lastValue": 0.001272106,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 34950,
+            "unit": "ppm",
+            "count": 7324,
+            "average": 0.560140642271983,
+            "lastValue": 0.179273,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 34949,
+            "unit": "ppm",
+            "count": 7315,
+            "average": 0.0158286737602187,
+            "lastValue": 0.002109368,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184401,
+            "unit": "ppm",
+            "count": 3807,
+            "average": 0.0121433775193065,
+            "lastValue": 0.01994111,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 34947,
+            "unit": "µg/m³",
+            "count": 7259,
+            "average": 24.8352119283648,
+            "lastValue": 14.38961,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.65837,
+          "longitude": -74.084
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 40147
+      },
+      {
+        "id": 10602,
+        "city": "Bogota",
+        "name": "Kennedy",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 35201,
+            "unit": "ppm",
+            "count": 7318,
+            "average": 0.888113777671495,
+            "lastValue": 0.730805,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35197,
+            "unit": "µg/m³",
+            "count": 7289,
+            "average": 23.9039648785842,
+            "lastValue": 6,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35198,
+            "unit": "µg/m³",
+            "count": 7062,
+            "average": 44.9078006935712,
+            "lastValue": 30.51262,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35199,
+            "unit": "ppm",
+            "count": 7230,
+            "average": 0.00176033516210235,
+            "lastValue": 0.000501272,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35200,
+            "unit": "ppm",
+            "count": 7310,
+            "average": 0.0193561677839945,
+            "lastValue": 0.009033991,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184398,
+            "unit": "ppm",
+            "count": 3741,
+            "average": 0.0193287453215718,
+            "lastValue": 0.01862694,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.6249,
+          "longitude": -74.16135
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 39950
+      },
+      {
+        "id": 10603,
+        "city": "Bogota",
+        "name": "Puente Aranda",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 35205,
+            "unit": "ppm",
+            "count": 7330,
+            "average": 1.19544669031378,
+            "lastValue": 0.353125,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35231,
+            "unit": "µg/m³",
+            "count": 7358,
+            "average": 40.4422426201413,
+            "lastValue": 15.71307,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35234,
+            "unit": "µg/m³",
+            "count": 7247,
+            "average": 25.6867669380433,
+            "lastValue": 1,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184399,
+            "unit": "ppm",
+            "count": 3570,
+            "average": 0.00738538528403361,
+            "lastValue": 0.0101568,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 35224,
+            "unit": "ppm",
+            "count": 7204,
+            "average": 0.00145026924305941,
+            "lastValue": 0.000944573,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35206,
+            "unit": "ppm",
+            "count": 7275,
+            "average": 0.0215335186970447,
+            "lastValue": 0.006656609,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.63187,
+          "longitude": -74.11757
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 39984
+      },
+      {
+        "id": 10615,
+        "city": "Bogota",
+        "name": "Suba",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 1184403,
+            "unit": "ppm",
+            "count": 3819,
+            "average": 0.0128973462953653,
+            "lastValue": 0.01891733,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 35263,
+            "unit": "µg/m³",
+            "count": 6930,
+            "average": 15.5955266955267,
+            "lastValue": 6,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35260,
+            "unit": "ppm",
+            "count": 6882,
+            "average": 0.0121102632310375,
+            "lastValue": 0.003957329,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35261,
+            "unit": "ppm",
+            "count": 6870,
+            "average": 0.00126944963905386,
+            "lastValue": 0.000233751,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35262,
+            "unit": "µg/m³",
+            "count": 6888,
+            "average": 31.7724859593496,
+            "lastValue": 24.68214,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.76251,
+          "longitude": -74.09343
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 31389
+      },
+      {
+        "id": 10626,
+        "city": "Bogota",
+        "name": "Jazmin",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 35311,
+            "unit": "µg/m³",
+            "count": 7170,
+            "average": 26.0222840301255,
+            "lastValue": 10.32732,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35315,
+            "unit": "ppm",
+            "count": 7365,
+            "average": 0.613918659470468,
+            "lastValue": 0.263099,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35314,
+            "unit": "ppm",
+            "count": 7396,
+            "average": 0.0193613778107085,
+            "lastValue": 0.003345623,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35313,
+            "unit": "ppm",
+            "count": 7054,
+            "average": 0.00165978870612418,
+            "lastValue": 0.000336407,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35312,
+            "unit": "µg/m³",
+            "count": 7376,
+            "average": 33.4453527855206,
+            "lastValue": 10.89517,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184404,
+            "unit": "ppm",
+            "count": 3813,
+            "average": 0.011467941902439,
+            "lastValue": 0.01817531,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.6085,
+          "longitude": -74.1149444444444
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 40174
+      },
+      {
+        "id": 10674,
+        "city": "Bogota",
+        "name": "Movil 7ma",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 35546,
+            "unit": "µg/m³",
+            "count": 7404,
+            "average": 44.6125795788763,
+            "lastValue": 0.6965,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35550,
+            "unit": "ppm",
+            "count": 1815,
+            "average": 0.00190096967933884,
+            "lastValue": 0.003301071,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2020-11-30T13:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35551,
+            "unit": "ppm",
+            "count": 7324,
+            "average": 1.40989113640087,
+            "lastValue": 1.474832,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35541,
+            "unit": "µg/m³",
+            "count": 7407,
+            "average": 22.8567571216417,
+            "lastValue": 6,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 39298,
+            "unit": "ppm",
+            "count": 6765,
+            "average": 0.00703460616171471,
+            "lastValue": 0.003772331,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-11-05T16:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.645228,
+          "longitude": -74.06152
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 30715
+      },
+      {
+        "id": 10705,
+        "city": "Bogota",
+        "name": "San Cristobal",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 35665,
+            "unit": "µg/m³",
+            "count": 7357,
+            "average": 14.4601060214761,
+            "lastValue": 1,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35663,
+            "unit": "µg/m³",
+            "count": 7342,
+            "average": 25.0143012803051,
+            "lastValue": 5,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184393,
+            "unit": "ppm",
+            "count": 3834,
+            "average": 0.0134648030907668,
+            "lastValue": 0.01695817,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.5725,
+          "longitude": -74.0836
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 18533
+      },
+      {
+        "id": 10730,
+        "city": "Bogota",
+        "name": "MinAmbiente",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 35763,
+            "unit": "µg/m³",
+            "count": 7350,
+            "average": 21.0776694533333,
+            "lastValue": 8.795825,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184394,
+            "unit": "ppm",
+            "count": 3741,
+            "average": 0.013078743914996,
+            "lastValue": 0.01782141,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 35817,
+            "unit": "µg/m³",
+            "count": 7363,
+            "average": 15.1699035719136,
+            "lastValue": 1,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.62529,
+          "longitude": -74.06724
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 18454
+      },
+      {
+        "id": 10795,
+        "city": "Bogota",
+        "name": "Tunal",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 36056,
+            "unit": "µg/m³",
+            "count": 7272,
+            "average": 18.140401540154,
+            "lastValue": 0,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184396,
+            "unit": "ppm",
+            "count": 3813,
+            "average": 0.0132452694893784,
+            "lastValue": 0.01734035,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 36049,
+            "unit": "ppm",
+            "count": 7410,
+            "average": 1.03488526612686,
+            "lastValue": 0.470735,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36051,
+            "unit": "ppm",
+            "count": 7355,
+            "average": 0.0261060114864718,
+            "lastValue": 0.00480443,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36052,
+            "unit": "ppm",
+            "count": 7412,
+            "average": 0.0027610240090394,
+            "lastValue": 0.001254853,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36054,
+            "unit": "µg/m³",
+            "count": 7308,
+            "average": 42.6629720853859,
+            "lastValue": 9,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.57619,
+          "longitude": -74.13093
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 40570
+      },
+      {
+        "id": 10812,
+        "city": "Bogota",
+        "name": "Las Ferias",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 1184395,
+            "unit": "ppm",
+            "count": 3786,
+            "average": 0.0134541346743265,
+            "lastValue": 0.02607556,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 36123,
+            "unit": "ppm",
+            "count": 7380,
+            "average": 0.792201370596206,
+            "lastValue": 0.035098,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36122,
+            "unit": "ppm",
+            "count": 7376,
+            "average": 0.019049002742679,
+            "lastValue": 0.002721508,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36121,
+            "unit": "µg/m³",
+            "count": 7385,
+            "average": 23.9910631156398,
+            "lastValue": 7.851312,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36120,
+            "unit": "µg/m³",
+            "count": 7068,
+            "average": 15.4279134616582,
+            "lastValue": 9.699998,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.6906,
+          "longitude": -74.08256
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 32995
+      },
+      {
+        "id": 10834,
+        "city": "Bogota",
+        "name": "Usaquen",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 36217,
+            "unit": "ppm",
+            "count": 7368,
+            "average": 0.0121386450061075,
+            "lastValue": 0.002542988,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36218,
+            "unit": "ppm",
+            "count": 7347,
+            "average": 0.00125115705485232,
+            "lastValue": 0.000668371,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36219,
+            "unit": "µg/m³",
+            "count": 6732,
+            "average": 15.0027605326797,
+            "lastValue": 6.997983,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36222,
+            "unit": "µg/m³",
+            "count": 6715,
+            "average": 11.112494106627,
+            "lastValue": 10.59054,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184397,
+            "unit": "ppm",
+            "count": 3780,
+            "average": 0.0151725691904762,
+            "lastValue": 0.02106078,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 36216,
+            "unit": "ppm",
+            "count": 7409,
+            "average": 0.506695304224592,
+            "lastValue": 0.266193,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.70939,
+          "longitude": -74.03199
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 39351
+      },
+      {
+        "id": 10841,
+        "city": "Bogota",
+        "name": "Bosa",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 36251,
+            "unit": "ppm",
+            "count": 7122,
+            "average": 0.0133542197304128,
+            "lastValue": 0.001205085,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36252,
+            "unit": "ppm",
+            "count": 7351,
+            "average": 0.448178970480207,
+            "lastValue": 0.24725,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36250,
+            "unit": "ppm",
+            "count": 7360,
+            "average": 0.00588138957961957,
+            "lastValue": 0.003763345,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184402,
+            "unit": "ppm",
+            "count": 3786,
+            "average": 0.0126193252535658,
+            "lastValue": 0.01515487,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 36249,
+            "unit": "µg/m³",
+            "count": 7387,
+            "average": 39.5019649025315,
+            "lastValue": 20.11338,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36248,
+            "unit": "µg/m³",
+            "count": 7381,
+            "average": 16.6329204438423,
+            "lastValue": 10.42641,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.605611,
+          "longitude": -74.2040555555556
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 40387
+      },
+      {
+        "id": 10848,
+        "city": "Bogota",
+        "name": "Bolivia",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 36290,
+            "unit": "ppm",
+            "count": 6956,
+            "average": 0.00149612423950546,
+            "lastValue": 0.000627835,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36292,
+            "unit": "ppm",
+            "count": 7016,
+            "average": 0.477626904076397,
+            "lastValue": 0.119534,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36288,
+            "unit": "µg/m³",
+            "count": 7036,
+            "average": 18.1510652144684,
+            "lastValue": 3.113188,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36289,
+            "unit": "µg/m³",
+            "count": 7033,
+            "average": 43.3028989331722,
+            "lastValue": 6.272681,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 36291,
+            "unit": "ppm",
+            "count": 6778,
+            "average": 0.0186576735767188,
+            "lastValue": 0.01386176,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-04-17T20:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.735821,
+          "longitude": -74.125839
+        },
+        "lastUpdated": "2021-04-17T20:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 34819
+      },
+      {
+        "id": 10677,
+        "city": "Bogota",
+        "name": "Carvajal - Sevillana",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 35563,
+            "unit": "µg/m³",
+            "count": 4619,
+            "average": 35.7319766183157,
+            "lastValue": 42,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-03-02T18:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 1184391,
+            "unit": "ppm",
+            "count": 1059,
+            "average": 0.00866499566288952,
+            "lastValue": 0.02871778,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-02-18T16:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 35569,
+            "unit": "ppm",
+            "count": 4925,
+            "average": 1.80096895654822,
+            "lastValue": 1.335754,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-03-02T18:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35568,
+            "unit": "ppm",
+            "count": 5234,
+            "average": 0.0184483103612916,
+            "lastValue": 0.002725625,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-03-02T18:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35567,
+            "unit": "ppm",
+            "count": 5243,
+            "average": 0.00639197689605188,
+            "lastValue": 0.002626199,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-03-02T18:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 35564,
+            "unit": "µg/m³",
+            "count": 5228,
+            "average": 71.6182096403979,
+            "lastValue": 65,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-03-02T18:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.5958,
+          "longitude": -74.14855
+        },
+        "lastUpdated": "2021-03-02T18:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 26308
+      },
+      {
+        "id": 8004,
+        "city": "Bogota",
+        "name": "Ciudad Bolivar",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "secretaria-distrital-de-ambiente",
+            "url": "http://www.ambientebogota.gov.co/",
+            "name": "Secretaria Distrital de Ambiente"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 1184400,
+            "unit": "ppm",
+            "count": 60,
+            "average": 0.00845487175,
+            "lastValue": 0.005127221,
+            "parameter": "o3",
+            "displayName": "O₃",
+            "lastUpdated": "2021-02-04T14:00:00+00:00",
+            "parameterId": 10,
+            "firstUpdated": "2021-02-03T19:00:00+00:00"
+          },
+          {
+            "id": 23219,
+            "unit": "µg/m³",
+            "count": 69,
+            "average": 47.2768204347826,
+            "lastValue": 115.5573,
+            "parameter": "pm10",
+            "displayName": "PM10",
+            "lastUpdated": "2021-02-04T14:00:00+00:00",
+            "parameterId": 1,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 23218,
+            "unit": "ppm",
+            "count": 69,
+            "average": 0.003163432,
+            "lastValue": 0.005254504,
+            "parameter": "so2",
+            "displayName": "SO₂",
+            "lastUpdated": "2021-02-04T14:00:00+00:00",
+            "parameterId": 9,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 23217,
+            "unit": "µg/m³",
+            "count": 69,
+            "average": 19.3496690869565,
+            "lastValue": 47.58657,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2021-02-04T14:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 23220,
+            "unit": "ppm",
+            "count": 69,
+            "average": 0.0158574863913044,
+            "lastValue": 0.05104458,
+            "parameter": "no2",
+            "displayName": "NO₂",
+            "lastUpdated": "2021-02-04T14:00:00+00:00",
+            "parameterId": 7,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          },
+          {
+            "id": 23221,
+            "unit": "ppm",
+            "count": 69,
+            "average": 0.604405956521739,
+            "lastValue": 2.105187,
+            "parameter": "co",
+            "displayName": "CO",
+            "lastUpdated": "2021-02-04T14:00:00+00:00",
+            "parameterId": 8,
+            "firstUpdated": "2020-10-29T22:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": -74.1662777777778,
+          "longitude": 4.5778056
+        },
+        "lastUpdated": "2021-02-04T14:00:00+00:00",
+        "firstUpdated": "2020-10-29T22:00:00+00:00",
+        "measurements": 405
+      },
+      {
+        "id": 2600,
+        "city": "Bogota",
+        "name": "US Diplomatic Post: Bogota",
+        "entity": "government",
+        "country": "CO",
+        "sources": [
+          {
+            "id": "epa-airnow-dos",
+            "url": "http://airnow.gov/index.cfm?action=airnow.global_summary",
+            "name": "EPA AirNow DOS"
+          }
+        ],
+        "isMobile": false,
+        "isAnalysis": false,
+        "parameters": [
+          {
+            "id": 5415,
+            "unit": "µg/m³",
+            "count": 5688,
+            "average": -15.095270745429,
+            "lastValue": 10.6,
+            "parameter": "pm25",
+            "displayName": "PM2.5",
+            "lastUpdated": "2016-11-09T16:00:00+00:00",
+            "parameterId": 2,
+            "firstUpdated": "2016-03-17T15:00:00+00:00"
+          }
+        ],
+        "sensorType": "reference grade",
+        "coordinates": {
+          "latitude": 4.6379935,
+          "longitude": -74.0962868
+        },
+        "lastUpdated": "2016-11-09T16:00:00+00:00",
+        "firstUpdated": "2016-03-17T15:00:00+00:00",
+        "measurements": 5688
+      }
+    ]
+  }

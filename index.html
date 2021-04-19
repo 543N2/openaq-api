@@ -21,21 +21,23 @@
         <label for="date_to">to</label>
       </div>
       <div class="input_item_container">
-        <input class="input_item" id="parameter" type="text" value="pm25" />
-        <label for="parameter">parameter</label>
-      </div>
-      <div class="input_item_container">
-        <input class="input_item" id="city" type="text" value="Bogota" />
+        <select name="" id="city">
+          <option value="">Select city</option>
+        </select>
         <label for="city">city</label>
       </div>
       <div class="input_item_container">
-        <input
-          class="input_item"
-          id="location"
-          type="text"
-          value="Puente Aranda"
-        />
+        <select name="" id="location">
+          <option value="">Select location</option>
+        </select>
         <label for="location">location</label>
+      </div>
+      <div class="input_item_container">
+        <!-- <input class="input_item" id="parameter" type="text" value="pm25" /> -->
+        <select name="" id="parameter">
+          <option value="">Select parameter</option>
+        </select>
+        <label for="parameter">parameter</label>
       </div>
         <button id="button_plot" class="input_button" type="button">
           Plot
