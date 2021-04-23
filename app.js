@@ -283,141 +283,6 @@ const AQI = {
     },
 }
 
-// const AQI = {
-//     'pm25': [
-//         {
-//             category: 'Good',
-//             color: 'rgba(0,228,0,1)',
-//             min: 0,
-//             max: 12,
-//             hours: 24
-//         },
-//         {
-//             category: 'Acceptable',
-//             color: 'rgba(255,255,0,1)',
-//             min: 13,
-//             max: 37,
-//             hours: 24
-//         },
-//         {
-//             category: 'Harmful to sentitive groups',
-//             color: 'rgba(255,126,0,1)',
-//             min: 38,
-//             max: 55,
-//             hours: 24
-//         },
-//         {
-//             category: 'Harmful',
-//             color: 'rgba(255,0,0,1)',
-//             min: 56,
-//             max: 150,
-//             hours: 24
-//         },
-//         {
-//             category: 'Very harmful',
-//             color: 'rgba(143,63,151,1)',
-//             min: 151,
-//             max: 250,
-//             hours: 24
-//         },
-//         {
-//             category: 'Dangerous',
-//             color: 'rgba(126,0,35,1)',
-//             min: 251,
-//             max: 500,
-//             hours: 24
-//         }
-//     ],
-//     'pm10': [
-//         {
-//             category: 'Good',
-//             color: 'rgba(0,228,0,1)',
-//             min: 0,
-//             max: 54,
-//             hours: 24
-//         },
-//         {
-//             category: 'Acceptable',
-//             color: 'rgba(255,255,0,1)',
-//             min: 55,
-//             max: 154,
-//             hours: 24
-//         },
-//         {
-//             category: 'Harmful to sentitive groups',
-//             color: 'rgba(255,126,0,1)',
-//             min: 155,
-//             max: 254,
-//             hours: 24
-//         },
-//         {
-//             category: 'Harmful',
-//             color: 'rgba(255,0,0,1)',
-//             min: 255,
-//             max: 354,
-//             hours: 24
-//         },
-//         {
-//             category: 'Very harmful',
-//             color: 'rgba(143,63,151,1)',
-//             min: 355,
-//             max: 424,
-//             hours: 24
-//         },
-//         {
-//             category: 'Dangerous',
-//             color: 'rgba(126,0,35,1)',
-//             min: 425,
-//             max: 604,
-//             hours: 24
-//         }
-//     ],
-//     'co': [
-//         {
-//             category: 'Good',
-//             color: 'rgba(0,228,0,1)',
-//             min: 0,
-//             max: 5094,
-//             hours: 8
-//         },
-//         {
-//             category: 'Acceptable',
-//             color: 'rgba(255,255,0,1)',
-//             min: 5095,
-//             max: 10819,
-//             hours: 8
-//         },
-//         {
-//             category: 'Harmful to sentitive groups',
-//             color: 'rgba(255,126,0,1)',
-//             min: 10820,
-//             max: 14254,
-//             hours: 8
-//         },
-//         {
-//             category: 'Harmful',
-//             color: 'rgba(255,0,0,1)',
-//             min: 14255,
-//             max: 17688,
-//             hours: 8
-//         },
-//         {
-//             category: 'Very harmful',
-//             color: 'rgba(143,63,151,1)',
-//             min: 17689,
-//             max: 34862,
-//             hours: 8
-//         },
-//         {
-//             category: 'Dangerous',
-//             color: 'rgba(126,0,35,1)',
-//             min: 34863,
-//             max: 57703,
-//             hours: 8
-//         }
-//     ],
-// }
-// --------------------------------------------
 
 
 // --------------------------------------------
@@ -459,8 +324,9 @@ function clearData() {
 // Actions: rawLabels
 // Status: OK
 // -----------------------------------------------------
-// function createConfig(labels, rawData, smoothData) {
 function createConfig(labels, data, type, parameter) {
+
+    console.log("Executed createConfig().")
 
     if (type === 'raw') {
 
@@ -481,11 +347,9 @@ function createConfig(labels, data, type, parameter) {
                 borderWidth: 1
             },
         )
-
     }
     else if (type === 'smooth') {
 
-        // let maxValue = Math.max.apply(null, smoothData)
         var maxValue = 0
         for (let i = 0; i < data.length; i++) {
             if (data[i] !== undefined) {
@@ -505,40 +369,8 @@ function createConfig(labels, data, type, parameter) {
         configSmooth.data.labels = labels
         configSmooth.data.datasets = []
 
-
-        // loops to try
-
-        // GET CRITERIA LABELS
-        // for(let a in AQI[parameter]['category']){ 
-        //     console.log(AQI['co']['category'][a].criteria)
-        // }
-
-        // GET MAX VALUE OF AQI
-        // for(let a in AQI['co']['category']){ 
-        //     console.log(AQI['co']['category'][a].max)
-        // }
-
-        //GET COLORS OF AQI
-        // for(let a in AQI['co']['category']){ 
-        //     console.log(AQI['co']['category'][a].color)
-        // }
-
-        // GET PARAMETER LABEL (CO, PM 2.5, PM 10, etc)
-        // AQI[parameter].name
-
-        // GET PARAMETER HOURS PERIOD
-        // AQI['pm25'].hours
-
-        // GET PARAMETER UNIT
-        // AQI['pm25'].unit
-
-        // loops to try
-
-
         for (a in AQI[parameter]['category']) {
-            console.log("esto esta saliendo")
-            console.log(AQI[parameter]['category'][a].criteria)
-
+            
             configSmooth.data.datasets.push(
                 {
                     label: AQI[parameter]['category'][a].criteria,
@@ -548,22 +380,21 @@ function createConfig(labels, data, type, parameter) {
                     pointRadius: 0
                 }
             )
-            console.log(configSmooth.data.datasets)
         }
         configSmooth.data.datasets.unshift(
             {
-                // label: 'PM 2.5 [µg/m³] (smooth)',
                 label: `${AQI[parameter].name} [${AQI[parameter].unit}] (smooth)`,
                 data: data,
                 fill: false,
                 borderColor: 'rgba(0,0,0, 1)',
                 borderWidth: 3
             })
-
     }
 
-
-
+    console.log(`>> Configuration file for plotting Raw Data:`)
+    console.log(configRaw)
+    console.log(`>> Configuration file for plotting Smooth Data:`)
+    console.log(configSmooth)
 
 }
 
@@ -598,27 +429,29 @@ function plot(config) {
 // MOVING AVERAGE
 // -------------------------------------------- 
 // Description: Calculates moving average given the period with acceptance of 75% of previous data.
-// Inputs: rawData
+// Inputs: data, totalValidPoints (period)
 // Outputs: avgData
 // Actions: smoData
 // status: OK, but needs to clean code.
 // --------------------------------------------
 // Dataset
-function movingAverage(data) {
-    console.log("la data es:")
-    console.log(data)
+function movingAverage(data, totalValidPoints) {
+
+    console.log("Executed movingAverage().")
+
     let smoothData = []
 
     // Moving average parameters
-    let pTot = 24
-    let pVal = Math.floor(0.75 * pTot)
-    console.log(`Total period: ${pTot}, Valid period: ${pVal}`)
+    let minValidPoints = Math.floor(0.75 * totalValidPoints)
+
+    console.log(`>> Total period: ${totalValidPoints} hours.`)
+    console.log(`>> Valid period: ${minValidPoints} hours.`)
 
     // Validation criteria for data
     const isValid = (d) => d > 0 && d !== null && d !== undefined && d !== "NA"
 
-    // First phase: 0 to pTot
-    for (let i = 0; i < pTot; i++) {
+    // First phase: 0 to totalValidPoints
+    for (let i = 0; i < totalValidPoints; i++) {
         let validos = 0
         let suma = 0
         for (j = 0; j <= i; j++) {
@@ -627,8 +460,8 @@ function movingAverage(data) {
                 suma += data[j]
             }
         }
-        // console.log(validos)
-        if (validos >= pVal) {
+                
+        if (validos >= minValidPoints) {
             smoothData[i] = suma / validos
         }
         else {
@@ -636,18 +469,18 @@ function movingAverage(data) {
         }
     }
 
-    // Second phase: pTot to n
-    for (let i = pTot; i < data.length; i++) {
+    // Second phase: totalValidPoints to n
+    for (let i = totalValidPoints; i < data.length; i++) {
         let validos = 0
         let suma = 0
-        for (let j = i - pTot + 1; j <= i; j++) {
+        for (let j = i - totalValidPoints + 1; j <= i; j++) {
             if (isValid(data[j])) {
                 validos += 1
                 suma += data[j]
             }
         }
         // console.log(validos)
-        if (validos >= pVal) {
+        if (validos >= minValidPoints) {
             smoothData[i] = suma / validos
         }
         else {
@@ -655,10 +488,11 @@ function movingAverage(data) {
         }
     }
 
-    //console.log(smoothData)
+    console.log(`>> Hourly based Smooth Data:`)
+    console.log(smoothData)
+
     return smoothData
 }
-
 // --------------------------------------------
 
 
@@ -701,16 +535,15 @@ async function getData() {
         const response = await fetch(parameters.url, { method: 'GET' })
         const data = await response.json();
         let array = data.results
-        console.log(array)
         for (a of array) {
             apiLabels.push(a.date.utc)
             apiData.push(a.value)
         }
-
         console.log(`Executed getData()`)
+        console.log(`>> Labels array from API:`)
         console.log(apiLabels)
+        console.log(`>> Data array from API:`)
         console.log(apiData)
-
     }
     catch (err) {
         console.log(`Error fetching data: ${err}`)
@@ -735,6 +568,7 @@ function numberOfHours(startDate, endDate) {
     let hours = (endDateUTC.getTime() - startDateUTC.getTime()) / 3600000 + 1
 
     console.log(`Executed numberOfHours()`)
+    console.log(`>> Total of hours: ${hours}.`)
 
     return hours
 }
@@ -781,9 +615,9 @@ function createRaw(start, end) {
         smoLabels[d] = dateToUTC(rawLabels[d], 'reverse')
     }
     console.log(`Executed createRaw()`)
-    console.log('rawLabels')
+    console.log('>> Hourly based Labels:')
     console.log(rawLabels)
-    console.log("rawData")
+    console.log(">> Hourly based Raw Data:")
     console.log(rawData)
 }
 // --------------------------------------------
@@ -835,6 +669,8 @@ function getURL() {
         `&order_by=datetime`;
 
     console.log(`Executed getURL()`)
+    console.log(`>> URL: ${parameters.url}`)
+
 }
 // --------------------------------------------
 
@@ -866,8 +702,9 @@ function getDates() {
     parameters.date_from_utc = dateToUTC(parameters.date_from, 'from')
     parameters.date_to_utc = dateToUTC(parameters.date_to, 'to')
 
-    console.log(`Executed getDates()`)
-    // console.log(parameters)
+    console.log(`Executed getDates().`)
+    console.log(`>> Date from: ${parameters.date_from}, UTC: ${parameters.date_from_utc}`)
+    console.log(`>> Date to: ${parameters.date_to}, UTC: ${parameters.date_to_utc}`)
 
 }
 // --------------------------------------------
@@ -912,6 +749,8 @@ function dropdownBuilder(values, displays, selectorStr) {
 // --------------------------------------------
 async function cityQuery() {
 
+    console.log("Executed cityQuery().")
+
     let cityElements = document.getElementById("city")
 
     let URL = 'https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/cities?limit=100&page=1&offset=0&sort=asc&country=CO&order_by=city'
@@ -928,9 +767,9 @@ async function cityQuery() {
 
     cityElements.addEventListener("change", () => {
         parameters.city = cityElements.value
+        
+        console.log(`>> City: ${parameters.city}`)
     })
-
-    console.log("Run cityQuery()")
 }
 // --------------------------------------------
 
@@ -946,9 +785,12 @@ async function cityQuery() {
 // --------------------------------------------
 async function locationQuery() {
 
+    console.log("Executed locationQuery().")
+
     let cityElements = document.getElementById("city")
 
     cityElements.addEventListener('change', async (e) => {
+
         let cityStr = parameters.city.replaceAll(" ", "%20")
         let URL = `https://u50g7n0cbj.execute-api.us-east-1.amazonaws.com/v2/locations?limit=100000&page=1&offset=0&sort=desc&radius=1000&country=CO&` +
             `city=${cityStr}` +
@@ -962,13 +804,15 @@ async function locationQuery() {
         let array = [... new Set(data)]
         array.unshift("Set location")
         dropdownBuilder(array, array, "location")
-        console.log("Run locationQuery()")
     })
 
     let locationElements = document.getElementById("location")
 
     locationElements.addEventListener('change', async () => {
         parameters.location = locationElements.value
+
+        console.log(`>> Location: ${parameters.location}`)
+
     })
 }
 // --------------------------------------------
@@ -984,6 +828,8 @@ async function locationQuery() {
 // status: IN PROGRESS
 // --------------------------------------------
 async function parameterQuery() {
+
+    console.log("Executed parameterQuery().")
 
     let locationElements = document.getElementById("location")
     locationElements.addEventListener('change', async (e) => {
@@ -1006,15 +852,13 @@ async function parameterQuery() {
         values.unshift("")
         displays.unshift("Select parameter")
 
-        // console.log(values)
-        // console.log(displays)
         dropdownBuilder(values, displays, "parameter")
 
         let parameterElements = document.getElementById("parameter")
         parameterElements.addEventListener("change", () => {
             parameters.parameter = document.getElementById("parameter").value
 
-            getDates()
+            console.log(`>> Parameter: ${parameters.parameter}`)
         })
     })
 }
@@ -1060,7 +904,7 @@ button_plot.addEventListener("click", e => {
     getURL()
     getData()
         .then(res => createRaw(parameters.date_from_utc, parameters.date_to_utc))
-        .then(res => smoData = movingAverage(rawData))
+        .then(res => smoData = movingAverage(rawData, AQI[parameters.parameter]["hours"]))
         .then(res => createConfig(smoLabels, rawData, 'raw', parameters.parameter))
         .then(res => createConfig(smoLabels, smoData, 'smooth', parameters.parameter))
         .then(res => plot(configRaw))
