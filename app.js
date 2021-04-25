@@ -370,7 +370,7 @@ function createConfig(labels, data, type, parameter) {
         configSmooth.data.datasets = []
 
         for (a in AQI[parameter]['category']) {
-            
+
             configSmooth.data.datasets.push(
                 {
                     label: AQI[parameter]['category'][a].criteria,
@@ -460,7 +460,7 @@ function movingAverage(data, totalValidPoints) {
                 suma += data[j]
             }
         }
-                
+
         if (validos >= minValidPoints) {
             smoothData[i] = suma / validos
         }
@@ -575,6 +575,36 @@ function numberOfHours(startDate, endDate) {
 // --------------------------------------------
 
 
+
+// --------------------------------------------
+// UNIT CONVERTER
+// -------------------------------------------- 
+// Description: Converts units to ug/m3.
+// Inputs: NA
+// Outputs: NA
+// Actions: rawData
+// status: OK
+// -----------------------------------------------------
+function unitConverter(rawData, point, index) {
+    const Kstd = 101325 / 298.15 / 8.314472
+    const conversionFactor = {
+        "co": Kstd * 28.010,
+        "no2": Kstd * 46.006,
+        "o3": Kstd * 48,
+        "so2": Kstd * 64.066,
+        "pm25": 1,
+        "pm10": 1,
+    }
+    if (rawData[index] === undefined) {
+        rawData[index] = undefined
+    } else {
+        rawData[index] = point * conversionFactor[parameters.parameter]
+    }
+}
+// --------------------------------------------
+
+
+
 // --------------------------------------------
 // CREATE RAW
 // -------------------------------------------- 
@@ -585,6 +615,8 @@ function numberOfHours(startDate, endDate) {
 // Status: OK
 // -----------------------------------------------------
 function createRaw(start, end) {
+
+    console.log(`Executed createRaw()`)
 
     let startDate = new Date(start)
     let endDate = new Date(end)
@@ -614,14 +646,16 @@ function createRaw(start, end) {
         }
         smoLabels[d] = dateToUTC(rawLabels[d], 'reverse')
     }
-    console.log(`Executed createRaw()`)
+
+    // Converts units to ug/m3
+    rawData.map((point, index) => unitConverter(rawData, point, index))
+
     console.log('>> Hourly based Labels:')
     console.log(rawLabels)
     console.log(">> Hourly based Raw Data:")
     console.log(rawData)
 }
 // --------------------------------------------
-
 
 
 // --------------------------------------------
@@ -767,7 +801,7 @@ async function cityQuery() {
 
     cityElements.addEventListener("change", () => {
         parameters.city = cityElements.value
-        
+
         console.log(`>> City: ${parameters.city}`)
     })
 }
