@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Open AQ - API</title>
+    <title>CO-AQ-Visualizer</title>
   </head>
   <body>
     <header class="header">
-      <span class="title">Open AQ: Data visualizer</span>
+      <span class="title">Colombia Air Quality Data visualizer</span>
+      <button id="instructions_button" class="instructions_button">?</button>
     </header>
     <section class="inputs_bar">
       <div class="input_item_container">
@@ -22,27 +23,69 @@
       </div>
       <div class="input_item_container">
         <select name="" id="city">
-          <option value="">Select city</option>
+          <option value="">Select location</option>
         </select>
-        <label for="city">city</label>
+        <label for="city">location</label>
       </div>
       <div class="input_item_container">
         <select name="" id="location">
-          <option value="">Select location</option>
+          <option value="">Select station</option>
         </select>
-        <label for="location">location</label>
+        <label for="location">station</label>
       </div>
       <div class="input_item_container">
         <!-- <input class="input_item" id="parameter" type="text" value="pm25" /> -->
         <select name="" id="parameter">
-          <option value="">Select parameter</option>
+          <option value="">Select contaminant</option>
         </select>
-        <label for="parameter">parameter</label>
+        <label for="parameter">contaminant</label>
       </div>
         <button id="button_plot" class="input_button" type="button">
           Plot
         </button>
       </div>
+    </section>
+
+    <section id="instructions_content" class="instructions_content">
+      <h3>How to use:</h3>
+      <br>
+      <p>Colombia Air Quality Data Visualizer is a tool for obtaining and plotting real Air Quality data from the OpenAQ API, that builds a <i>RAW</i> and a <i>SMOOTH</i> data chart for the selected parameters.</p>
+      <br>
+      <p>The <i>RAW</i> chart shows 24 datapoints per day. The <i>SMOOTH</i> chart shows the processed data based on the <a href="https://www.minambiente.gov.co/images/AsuntosambientalesySectorialyUrbana/pdf/contaminacion_atmosferica/Protocolo_Calidad_del_Aire_-_Manual_Operaci%C3%B3n.pdf">Protocol for the Monitoring of Air Quality</a> by the Ministry of the Environment, Housing and Territorial Development of Colombia. </p>
+      <br>
+      <h3>How to use:</h3>
+      <br>
+        <ol>
+          <li>Choose the <span class="txt">from</span> and <span class="txt">to</span> dates to query.</li>
+          <li>Choose <span class="txt">location</span> to activate the available monitoring stations. </li>
+          <li>Choose <span class="txt">station</span> to activate the available contaminants. </li>
+          <li>Choose <span class="txt">contaminant</span> to complete the query.</li>
+          <li>Click the <span class="txt">Plot</span> button to generate the charts.</li>
+        </ol>
+        <br>
+      <h3>Suggestions:</h3>
+      <br>
+      <ul>
+        <li>Do not forget to fill all the information before clicking <span class="txt">Plot</span> button.</li>
+        <li>Make sure the <span class="txt">to</span> date is more recent than the <span class="txt">from</span>date.</li>
+        <li>Feel free to update the parameters and plot a new chart.</li>
+        <li>The charts may have blanks. These are anoumalous datapoints filtered from the source.</li>
+      </ul>
+      <br>
+      <h3>Troubleshooting:</h3>
+      <br>
+      <ul>
+        <li>If an error pops up, please verify the dates and try again.</li>
+        <li>Sometimes the raw data chart is plotted even when with the error pops up. It happens if there is not enough valid data for smooth calculations.</li>
+        <li>If something unexpected happens, please press <span class="txt">F5</span> on your keyboard to refresh the page.</li>
+      </ul>
+      <br>
+      <h3>Contact me!</h3>
+      <br>
+      <p>Please let me know if you find any issues, want to make suggestions or if you are interested in further information!</p>
+      <br>
+      <a href="543n2.one@gmail.com">543n2.one@gmail.com</a>
+
     </section>
 
     <div id="plotHere"></div>

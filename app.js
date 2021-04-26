@@ -898,6 +898,37 @@ async function parameterQuery() {
 }
 // --------------------------------------------
 
+// --------------------------------------------
+// SHOW/HIDE INSTRUCTIONS
+// -------------------------------------------- 
+// Description: Show and hide instructions
+// Inputs: NA
+// Outputs: NA
+// Actions: NA
+// status: OK
+// --------------------------------------------
+function loadInstructions() {
+    let instructions_content = document.getElementById('instructions_content')
+    let instructions_button = document.getElementById('instructions_button')
+
+    instructions_button.addEventListener('click', () => {
+
+        if (instructions_content.style.display === 'none') {
+            instructions_content.style.display = 'block'
+            instructions_button.innerHTML = " X "
+            instructions_button.style.backgroundColor = "darksalmon"
+            instructions_button.style.color = "black"
+        }
+        else {
+            instructions_content.style.display = 'none'
+            instructions_button.innerHTML = " ? "
+            instructions_button.style.backgroundColor = "rgb(95, 95, 95)"
+            instructions_button.style.color = "white"
+        }
+    })
+}
+// --------------------------------------------
+
 
 // --------------------------------------------
 // MAIN PROGRAM
@@ -908,7 +939,10 @@ async function parameterQuery() {
 // Actions: parameters, apiLabels, apiData, rawLabels, rawData, canvas, button_plot
 // status: OK
 // --------------------------------------------
+
 let parameters = {}
+
+loadInstructions()
 
 cityQuery()
     .then(res => locationQuery())
