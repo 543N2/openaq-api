@@ -331,10 +331,19 @@ function createConfig(labels, data, type, parameter) {
     if (type === 'raw') {
 
         configRaw.type = 'line'
+
         configRaw.options = {}
         configRaw.options.scales = {}
         configRaw.options.scales.y = {}
         configRaw.options.scales.y.beginAtZero = true
+        
+        configRaw.options.plugins = {}
+        configRaw.options.plugins.title = {}
+        configRaw.options.plugins.title.display = true
+        configRaw.options.plugins.title.text = `${AQI[parameter].name} RAW DATA CHART`
+                      
+
+        
         configRaw.data = {}
         configRaw.data.labels = labels
         configRaw.data.datasets = []
@@ -360,11 +369,18 @@ function createConfig(labels, data, type, parameter) {
         }
 
         configSmooth.type = 'line'
+        
         configSmooth.options = {}
         configSmooth.options.scales = {}
         configSmooth.options.scales.y = {}
         configSmooth.options.scales.y.beginAtZero = true
         configSmooth.options.scales.y.max = maxValue * 1.25
+
+        configSmooth.options.plugins = {}
+        configSmooth.options.plugins.title = {}
+        configSmooth.options.plugins.title.display = true
+        configSmooth.options.plugins.title.text = `${AQI[parameter].name} SMOOTH DATA CHART`
+        
         configSmooth.data = {}
         configSmooth.data.labels = labels
         configSmooth.data.datasets = []
