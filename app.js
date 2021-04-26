@@ -836,7 +836,7 @@ async function locationQuery() {
             data.push(loc.name)
         }
         let array = [... new Set(data)]
-        array.unshift("Set location")
+        array.unshift("Set station")
         dropdownBuilder(array, array, "location")
     })
 
@@ -879,12 +879,13 @@ async function parameterQuery() {
         let values = []
         let displays = []
         for (param of dataObject.results[0].parameters) {
-            displays.push(`${param.displayName} [${param.unit}]`)
+            // displays.push(`${param.displayName} [${param.unit}]`)
+            displays.push(`${param.displayName} [µg/m³]`)
             values.push(param.parameter)
         }
 
         values.unshift("")
-        displays.unshift("Select parameter")
+        displays.unshift("Select pollutant")
 
         dropdownBuilder(values, displays, "parameter")
 
@@ -908,20 +909,22 @@ async function parameterQuery() {
 // status: OK
 // --------------------------------------------
 function loadInstructions() {
-    let instructions_content = document.getElementById('instructions_content')
     let instructions_button = document.getElementById('instructions_button')
-
+    
+    let instructions_content = document.getElementById('instructions_content')
+    instructions_content.style.display = 'none'
+    
     instructions_button.addEventListener('click', () => {
 
         if (instructions_content.style.display === 'none') {
             instructions_content.style.display = 'block'
-            instructions_button.innerHTML = " X "
+            instructions_button.innerHTML = " Hide "
             instructions_button.style.backgroundColor = "darksalmon"
             instructions_button.style.color = "black"
         }
         else {
             instructions_content.style.display = 'none'
-            instructions_button.innerHTML = " ? "
+            instructions_button.innerHTML = " Instructions "
             instructions_button.style.backgroundColor = "rgb(95, 95, 95)"
             instructions_button.style.color = "white"
         }
